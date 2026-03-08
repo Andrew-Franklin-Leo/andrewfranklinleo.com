@@ -1,0 +1,50 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Subscribers - write from API (admin SDK), read by admin only
+    match /subscribers/{docId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // Stakeholders - authenticated users can read their own profile
+    match /stakeholders/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && request.auth.uid == userId
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['tier', 'stripeCustomerId', 'stripeSubscriptionId']);
+    }
+
+    // Incentive Ledger - authenticated users can read their own entries
+    match /incentive_ledger/{docId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow write: if false;
+    }
+
+    // Referral Ledger - admin only
+    match /referral_ledger/{docId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // Inquiries - write from API (admin SDK), read by admin only
+    match /inquiries/{docId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // Governance Signals - read by authenticated users with operator+ tier
+    match /governance_signals/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Content Metrics - admin only
+    match /content_metrics/{docId} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}

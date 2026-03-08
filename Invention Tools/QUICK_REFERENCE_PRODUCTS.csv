@@ -1,0 +1,30 @@
+Product Name,Category,Target Buyer Title,Target Company Size,Price,ACV Annual,Sales Cycle Days,ROI Multiple,Margin %,Time to Deploy,Expansion Product,Expansion Price/Month,PMF Signal
+Production Stability Sprint,90-Day Unit,COO,100M-500M,95000,95000,60,12x,65%,90,Plant Licensing,30000-50000,₹12L quarterly savings
+Fleet Utilization Recovery Sprint,90-Day Unit,Head of Operations,200M+,80000,80000,60,5x,60%,90,City Cluster Licensing,20000-40000,12-15% utilization lift
+Margin Recovery Sprint,90-Day Unit,CFO,50M-500M,110000,110000,60,7.6x,70%,90,Practice Group Licensing,20000-35000,$840K EBITDA lift
+Working Capital Compression Sprint,90-Day Unit,CFO,100M+,95000,95000,60,60x,68%,90,Category Licensing,40000-60000,₹5.5Cr cash release
+Receivables Acceleration Sprint,90-Day Unit,CFO,200M+,85000,85000,60,60x,70%,90,Recurring Receivables,15000-25000,₹5Cr liquidity release
+Decision Latency Reduction Sprint,90-Day Unit,COO,50M+,90000,90000,60,TBD,65%,90,BU Governance,25000-40000,50% decision cycle reduction
+AINEFF Framework,Platform,Government/Institutional,Sovereign,500000-2000000,2000000,180,N/A,75%,180,AINEF Instantiation,100000-500000,Enables regulated AI enterprise creation
+AINEF Factory,Platform,VP Operations/CIO,Enterprise,100000-1000000,600000-2400000,90,N/A,75%,30,AINE Licensing,50000-200000,Can manufacture 1-100 enterprises/month
+AINEG Portfolio Intelligence,Platform,CRO/Portfolio Manager,Large Enterprise,300000-2000000,300000-2000000,120,N/A,78%,30,Additional AINE Monitoring,10000-50000,Can manage 100-10000 enterprises simultaneously
+AINE Operating System,Platform,CTO/Venture Founder,Startup/Enterprise,60000-600000,200000-1000000,30,N/A,80%,14,Revenue Share,10%-20% of gross,Can run enterprise with 100% AI workforce
+Parametric AI Outcome Insurance,Insurance,CRO/Risk Manager,Enterprise/Finance,500000-5000000,500000-5000000,120,N/A,50%,120,Reinsurance Management,200000-2000000,Outcome guarantees reduce customer acquisition friction
+Insurance Compliance System,Governance,Risk/Compliance Officer,Enterprise,100000-500000,200000-500000,90,N/A,72%,60,Anti-Oligarchy Monitoring,10000-50000,Prevents insurance arbitrage and fraud
+Clinical Safety Insurance,Insurance,Hospital CRO,Healthcare,500000-10000000,1000000+,150,N/A,55%,120,Treatment Monitoring,50000-500000,Ensures reversible AI healthcare decisions
+Infrastructure Governance Platform,Platform,Finance Minister,Government,5000000-50000000,10000000-100000000,180,N/A,70%,180,Project Monitoring,100000-1000000,Reduces infrastructure overruns by 20-40%
+Polyglot Data Architecture,Infrastructure,CTO,Enterprise,100000-500000,200000-500000,45,N/A,78%,60,Scaling & Optimization,20000-100000,Unified data layer for multi-workload persistence
+Citizen PDES Portal,Interface,Public,Citizen,0,0,30,N/A,N/A,7,Enterprise upgrades,100-1000,Problem submission + data collection
+Enterprise Client Portal,Interface,Operations Manager,Enterprise,50000-100000,50000-100000,30,N/A,85%,14,Custom modules,10000-50000,Service health + SLA monitoring
+Financial Dashboard,Interface,CFO,Enterprise,30000-50000,30000-50000,30,N/A,82%,7,Advanced analytics,5000-20000,Real-time P&L visibility
+Risk Monitoring Portal,Interface,CRO,Enterprise,50000-200000,100000-500000,45,N/A,80%,14,Custom alerts,5000-25000,Portfolio-level systemic visibility
+Audit Dashboard,Interface,Compliance,Enterprise,30000-100000,50000-200000,30,N/A,85%,7,Forensic tools,5000-20000,Immutable event records
+Pattern Discovery Agent,AI Agent,Operations,Enterprise,50000-150000,50000-150000,30,N/A,75%,7,Custom training,10000-50000,Complaint → metric translation automation
+Fraud Detection Agent,AI Agent,Compliance,Enterprise,50000-200000,100000-500000,45,N/A,78%,14,Real-time alerts,5000-25000,Insurance abuse prevention
+Predictive Failure Agent,AI Agent,Risk Officer,Enterprise,50000-250000,100000-500000,45,N/A,75%,14,Scenario planning,10000-50000,Forecasts enterprise failure modes
+Production Planning Agent,AI Agent,Operations,Manufacturing,30000-100000,50000-200000,30,N/A,72%,7,Custom optimizations,5000-15000,OTIF optimization automation
+Fleet Routing Agent,AI Agent,Operations,Logistics,30000-100000,50000-200000,30,N/A,72%,7,Real-time optimization,5000-15000,Fuel + utilization optimization
+Margin Recovery Agent,AI Agent,Finance,Services,30000-100000,50000-200000,30,N/A,72%,7,Custom rules,5000-15000,Margin leakage detection
+30-Day AINEF MVP Build,Implementation,CTO/VP Ops,Enterprise,150000-500000,250000-700000,60,N/A,60%,30,Ongoing operations,20000-100000,Runnable factory in 30 days
+Custom AINE Implementation,Implementation,CEO/CTO,Startup,100000-500000,200000-1000000,60,N/A,55%,60,Platform licensing,50000-200000,Complete AI enterprise deployment
+Architecture Consulting,Services,CIO/Board,Enterprise,150000-1000000,300000-2000000,90,N/A,65%,Variable,Platform/Service,50000-200000,Design governance-grade systems

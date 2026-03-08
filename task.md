@@ -1,0 +1,34 @@
+# Task Plan
+
+- [x] Phase 1: Review Context & Ecosystem Documents
+  - [x] Read key documents from `Invention Tools` (AUREYA_COMPLETE_ECOSYSTEM_INVENTORY, DELIVERY_SUMMARY, etc.)
+  - [x] Identify stakeholders and incentivization mechanisms
+- [x] Phase 2: Develop TOGAF Enterprise Architecture Plan
+  - [x] Create `implementation_plan.md` based on TOGAF ADM
+  - [x] Incorporate Next.js + Firebase tech stack
+  - [x] Define Business, Data, Application, and Technology architectures
+- [x] Phase 3: Review Plan with User
+  - [x] Request user feedback on the architecture plan
+- [x] Phase 4: Implementation
+  - [x] Initialize Next.js project
+  - [x] Setup Firebase integration (packages)
+  - [x] Implement initial site structure based on `SITE_ARCHITECTURE.md`
+- [x] Phase 5: Firebase Integration
+  - [x] Create Firebase client and admin configurations
+  - [x] Update `/portal` to use actual Firebase authentication
+  - [x] Provide instructions for configuring environment variables
+- [x] Phase 6: Deployment
+  - [x] Install `firebase-tools` CLI
+  - [x] Initialize Firebase Hosting for Next.js
+  - [x] Deploy site via `firebase deploy`
+- [/] Phase 7: Site Rebuild (Correct Design + Revenue Model)
+  - [/] globals.css — correct dark gold design system
+  - [ ] layout.tsx — Playfair Display font, correct nav
+  - [ ] page.tsx (Home) — Correct hero, thesis, frameworks, ecosystem, essays
+  - [ ] about/page.tsx — Bio of Andrew Palupillai, ORF Protocol
+  - [ ] essays/page.tsx — All 6 correct essays from spec
+  - [ ] subscribe/page.tsx — 5-tier subscription model
+  - [ ] speaking/page.tsx — Speaking with fees and topics
+  - [ ] portal/page.tsx — Stakeholder portal with tier gating
+  - [ ] contact/page.tsx — Contact + Constraint Council CTA
+  - [ ] Re-deploy to Firebase

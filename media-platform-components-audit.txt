@@ -1,0 +1,1264 @@
+================================================================================
+COMPREHENSIVE MEDIA NARRATIVE PLATFORM COMPONENT AUDIT
+================================================================================
+15 Global Platforms | 7 Component Categories | Exhaustive Inventory
+Research Date: March 2026
+================================================================================
+
+
+################################################################################
+SECTION 1: CONTENT ARCHITECTURE
+################################################################################
+
+--------------------------------------------------------------------------------
+1.1 ARTICLE TYPES & CONTENT FORMATS
+--------------------------------------------------------------------------------
+
+FORBES.COM
+- News articles (breaking, daily)
+- Long-form features / investigative pieces
+- Forbes Lists (Billionaires, 30 Under 30, Global 2000, Forbes 400, Powerful Women, Most Innovative Companies, Best Employers, etc.)
+- BrandVoice sponsored articles (native advertising content hubs)
+- Contributor-authored articles (1,200+ expert contributors)
+- Opinion / commentary columns
+- Video reports
+- Photo galleries
+- Infographics
+- E-commerce / affiliate product roundups
+- Magazine features (print-to-digital)
+- ForbesLife lifestyle content
+- Interactive data visualizations (lists-as-data)
+- Profiles (executive, entrepreneur, billionaire)
+- Q&A interviews
+- Special reports / packages
+
+FINANCIAL TIMES (FT.COM)
+- News articles (breaking, daily, analysis)
+- Lex Column (short-form financial analysis, back-page commentary)
+- FT Alphaville (blog-format financial market commentary)
+- Markets Live (real-time market commentary thread)
+- The Long Room (subscriber discussion forum)
+- Opinion / editorial columns
+- Big Read (long-form investigative features)
+- FT Magazine features
+- HTSI (How to Spend It) luxury lifestyle magazine
+- Data journalism / interactive visualizations
+- Special reports (country, industry, thematic)
+- Letters to the editor
+- Obituaries
+- Lunch with the FT (interview series)
+- Moral Money (ESG newsletter content)
+- Due Diligence (M&A newsletter content)
+- FT Film (video documentaries)
+- Podcasts (multiple series)
+- Audio articles (text-to-speech)
+- Live blogs (market events, elections)
+- Person in the News profiles
+- Seasonal reviews / year-ahead outlooks
+
+BLOOMBERG.COM
+- News articles (breaking, wire-speed)
+- Bloomberg Businessweek features (magazine-format long-form)
+- Bloomberg Opinion (op-eds, editorials)
+- QuickTake (social-format explainers for complex topics)
+- Bloomberg Intelligence research notes
+- Bloomberg Markets content
+- Bloomberg Wealth content
+- Bloomberg Technology content
+- Bloomberg Pursuits (luxury/lifestyle)
+- Bloomberg CityLab (urban policy)
+- Bloomberg Green (climate/sustainability)
+- Bloomberg Equality (diversity coverage)
+- Bloomberg Politics content
+- Bloomberg Crypto content
+- Video segments (Bloomberg TV clips, original)
+- Bloomberg TV live streaming
+- Audio / podcasts (Businessweek, Bloomberg Talks, Trumponomics, Odd Lots, etc.)
+- Data visualizations / interactive graphics
+- Photo essays
+- Profiles / features
+- Bloomberg New Economy content
+- Bloomberg Prognosis (health)
+- Bloomberg Law content
+- Bloomberg Tax content
+- Bloomberg Government content
+
+REUTERS.COM
+- Wire service dispatches (breaking news, real-time)
+- Analysis / explainer articles
+- Reuters Breakingviews (opinion/commentary)
+- Investigative / special reports
+- Graphics / Reuters Graphics (bespoke data visualizations)
+- Interactive news applications (multipage newsapps)
+- Photo journalism / picture stories
+- Video news clips
+- Live video / streaming
+- Reuters Fact Check
+- Wider Image (photo essays)
+- Sustainable Switch (climate content)
+- Reuters Open Interest (data-driven market commentary)
+- Country/region-focused coverage
+- Sector-focused coverage
+- Podcast episodes
+- Story summaries (subscriber feature)
+- Curated verticals
+
+WALL STREET JOURNAL (WSJ.COM)
+- News articles (breaking, daily)
+- Opinion / editorials (editorial board)
+- Commentary / op-eds
+- Free Expression (newsletter-focused opinion sub-brand, also on Substack)
+- WSJ Magazine features (lifestyle, culture)
+- Heard on the Street (market/company analysis column)
+- The A-Hed (quirky/human interest features)
+- Special reports / packages
+- Interactive data journalism
+- Video reports and documentaries
+- WSJ Noted (social/luxury events coverage)
+- Mansion (real estate section)
+- Off Duty (lifestyle)
+- Personal Finance
+- Barron's (investment analysis, stock picks, weekly magazine format - sibling)
+- MarketWatch (market data, personal finance - sibling)
+- Podcasts (The Journal, Potomac Watch, Take On the Week, WSJ Special Access, etc.)
+- Live blogs (market events, earnings season)
+- Infographics
+- Letters to the editor
+- Book reviews
+- Tech / personal tech reviews
+
+THE INFORMATION
+- Deep investigative articles (tech/VC/startup focus)
+- Scoops / exclusives
+- Org Charts (definitive reporting lines for 3,000+ executives across 60+ companies)
+- Briefing (daily newsletter-as-content)
+- Special Reports
+- Proprietary databases and datasets
+- Survey-based research
+- Analysis / commentary
+- TITV daily video news show (live weekday 10am PT)
+- AI Agenda newsletter content
+- Dealmaker newsletter content
+- AI Infrastructure newsletter content
+- Applied AI newsletter content
+- The Weekend (curated weekend reading)
+- Profiles
+- Conference / event coverage
+
+POLITICO PRO
+- Policy intelligence articles (real-time)
+- Morning newsletters / tip sheets (Playbook, etc.)
+- Regulatory tracker content
+- Legislative tracker content
+- Bill text analysis
+- Impact Activity Reports (AI-generated aggregated policy briefings)
+- AI-Enabled Custom Reports (generative AI policy explainers)
+- Committee hearing coverage
+- Profiles (lawmakers, staff, agency officials)
+- State-level policy coverage
+- Federal-level policy coverage
+- EU / Europe edition content (Politico Europe)
+- Magazine features (Politico Magazine)
+- Cartoons / illustrations
+- Opinion / commentary
+- Podcasts
+- Video
+
+AXIOS PRO
+- Smart Brevity format articles (bullet-point, scannable)
+- Pro Deals newsletters (fintech, health tech, retail, media, climate sectors)
+- Pro Policy newsletters (folded into national portfolio 2025)
+- Deep Dives (thematic analysis)
+- Axios AM / PM (daily news briefings)
+- Axios Local (city-level newsletters)
+- Free newsletters (40+ topics)
+- Charts / data visualizations ("1 big thing" format)
+- Axios-Harris Poll 100 (annual brand reputation ranking)
+- Expert Voices (contributed opinion)
+- Video (Axios on HBO partnership)
+- Interviews (Axios founders 1-on-1 series)
+- Event transcripts / coverage
+
+THE ECONOMIST
+- Weekly newspaper articles (print-to-digital)
+- Leaders (editorial position pieces)
+- Briefings (deep-dive multi-article packages)
+- Special Reports (country, industry, thematic)
+- By Invitation (external expert opinion)
+- The World Ahead (annual forecast publication)
+- Graphic Detail (data journalism, chart-led stories)
+- Daily Chart (chart of the day with 300-word explainer)
+- 1843 Magazine (long-form culture, lifestyle, ideas)
+- Espresso (daily brief, app-based)
+- Off the Charts newsletter (data journalism, on Substack)
+- Obituary column
+- Bagehot (British politics column)
+- Charlemagne (European politics column)
+- Lexington (American politics column)
+- Banyan (Asia column)
+- Schumpeter (business column)
+- Bartleby (management/work column)
+- Free Exchange (economics column)
+- Audio edition (full weekly read-aloud)
+- Podcasts (The Economist Podcasts, Money Talks, Babbage, The Intelligence, Drum Tower, etc.)
+- Interactive features / quizzes
+- Letters to the editor
+- KAL's Cartoon
+- Crossword puzzle
+- Data appendix / indicators tables
+
+GARTNER
+- Magic Quadrant reports (vendor evaluation matrices)
+- Hype Cycle reports (technology maturity curves)
+- Critical Capabilities reports
+- Market Guide reports
+- Research notes / analyst notes
+- Peer Insights reviews (verified user reviews of enterprise tech)
+- Executive briefs
+- Toolkits
+- Frameworks / models
+- Benchmarking reports
+- Case studies
+- Webinars (live and on-demand)
+- Predicts reports (annual forecasts)
+- Cool Vendors reports
+- Infographics
+- Podcasts
+- Video presentations
+
+McKINSEY GLOBAL INSTITUTE / McKINSEY.COM
+- MGI full research reports (book-length)
+- MGI discussion papers (initial findings)
+- MGI briefings (synthesis of key facts)
+- McKinsey Quarterly articles (flagship publication)
+- Featured Insights articles
+- Practice-area articles (by industry / function)
+- Author / partner profiles and collections
+- Data visualizations / interactive charts
+- "2025 in Charts" style curated collections
+- Podcasts (The McKinsey Podcast, McKinsey on..., etc.)
+- McKinsey Quarterly crossword puzzle
+- Monthly quiz
+- Interviews / Q&A
+- Survey-based reports (e.g., Global Survey)
+- Infographics
+- Video presentations
+- Blog-format commentary
+
+MORNING BREW / INDUSTRY DIVE
+- Daily email newsletters (Morning Brew flagship)
+- Vertical-specific newsletters (CFO Brew, HR Brew, Marketing Brew, Healthcare Brew, IT Brew, Retail Brew, Revenue Brew, Tech Brew)
+- Industry Dive publications (34 industries, 37 newsletters: Construction Dive, Education Dive, Food Dive, Restaurant Dive, Grocery Dive, Retail Dive, Supply Chain Dive, Utility Dive, Waste Dive, etc.)
+- SubHubs (behavior-based automated content series)
+- Podcast episodes
+- Social media native content (video, memes, infographics)
+- Comedy / entertainment shows
+- Deep Dive articles (long-form)
+- Data / charts
+- Original reporting
+- Trendline features
+- Sponsored content / native advertising
+- Events coverage and content
+
+STRATECHERY (BEN THOMPSON)
+- Weekly Articles (free, long-form strategic analysis)
+- Daily Updates (paid, 3x per week, shorter analysis)
+- Stratechery Interviews (subscriber audio/podcast)
+- Sharp Tech podcast (with Andrew Sharp)
+- Sharp China podcast (with Bill Bishop)
+- Dithering podcast (with John Gruber)
+- Greatest of All Talk podcast (sports)
+- Asianometry content (semiconductor/Asia tech, newsletter + podcast)
+- Concept archive / topic taxonomy
+- Charts / diagrams (hand-drawn strategy frameworks)
+
+PUCK NEWS
+- Author-branded newsletters (each writer = brand)
+- Long-form features / investigative pieces
+- Insider scoops
+- Inner Circle bonus newsletters (premium tier)
+- Verticals: Wall Street, Hollywood, Washington DC, Silicon Valley, Fashion, Art, Sports, Beauty
+- Podcast episodes
+- Audio versions of newsletters
+- Profiles
+- Commentary / analysis
+- Private conference calls (Inner Circle)
+- Event coverage
+
+SEMAFOR
+- Semaform articles (structured format: Facts / Analysis / Views / Room for Disagreement / Global Perspectives)
+- Newsletter editions (Flagship, Africa, Politics & Policy, Business & Finance, Climate, Energy, Security, Media, Technology, China, Asia, Europe, Middle East, Entertainment)
+- CEO Signal (invitation-only newsletter, 75% of Fortune 500 CEOs)
+- "One Good Text" feature (one-question text interviews with leaders)
+- Live event journalism / coverage
+- Video segments
+- Explainers
+- Semafor Intelligence (sponsored research/content)
+- Data visualizations
+
+
+--------------------------------------------------------------------------------
+1.2 EDITORIAL SECTIONS & VERTICALS (Summary Matrix)
+--------------------------------------------------------------------------------
+
+Platform             | Primary Verticals / Sections
+---------------------|------------------------------------------------------------
+Forbes               | Business, Tech, Innovation, Leadership, Money, ForbesLife,
+                     | Forbes Women, Forbes Under 30, Small Business, Advisor,
+                     | Crypto, AI, Health, Law, CPA, Black/Latino professionals
+FT                   | World, US, Companies, Tech, Markets, Climate, Opinion,
+                     | Work & Careers, Life & Arts, HTSI, FT Alphaville, Lex,
+                     | Moral Money, Due Diligence, #techFT
+Bloomberg            | Markets, Economics, Industries, Technology, Politics,
+                     | Wealth, Pursuits, Businessweek, Opinion, CityLab, Green,
+                     | Equality, Crypto, Prognosis, Law, Tax, Government
+Reuters              | World, Business, Legal, Markets, Breakingviews,
+                     | Technology, Investigates, Sports, Science, Lifestyle,
+                     | Sustainable Switch, Aerospace & Defense, Autos
+WSJ                  | News, Markets, Business, Tech, Opinion, Arts, Life,
+                     | Real Estate (Mansion), Style, Sports, Science, Politics,
+                     | Economy, Heard on the Street, WSJ Magazine, Barron's,
+                     | MarketWatch, Personal Finance
+The Information      | Tech, AI, Startups, VC/Deals, Cloud, Media, Crypto,
+                     | Enterprise, Creator Economy, China Tech
+Politico Pro         | Congress, White House, Health Care, Defense, Energy,
+                     | Finance, Technology, Trade, Education, Agriculture,
+                     | Transportation, Cybersecurity, AI, Tax, State-level
+Axios Pro            | Deals (Fintech, Health Tech, Retail, Media, Climate),
+                     | Policy, Local, National, Tech Policy
+The Economist        | The World This Week, Leaders, Letters, Briefing, World
+                     | (by region), Business, Finance, Science & Tech, Culture,
+                     | Graphic Detail, 1843, The Economist Explains
+Gartner              | IT, Supply Chain, Finance, HR, Legal, Marketing, Sales,
+                     | Customer Service, Digital Commerce, Data & Analytics
+McKinsey             | Strategy, Operations, Organization, Technology, Marketing,
+                     | Risk, Sustainability, Private Equity, Public Sector,
+                     | Industries (14+ sectors)
+Morning Brew / Dive  | General Business, CFO, HR, Marketing, Healthcare, IT,
+                     | Retail, Tech, Revenue + 34 Industry Dive sectors
+Stratechery          | Tech Strategy, AI, Big Tech, Media, Regulation,
+                     | Semiconductors, Asia Tech, China
+Puck                 | Wall Street, Hollywood, Washington, Silicon Valley,
+                     | Fashion, Art, Sports, Beauty
+Semafor              | World, US Politics, Business, Tech, Climate, Energy,
+                     | Media, Entertainment, Security, Africa, China, Asia,
+                     | Europe, Middle East
+
+
+################################################################################
+SECTION 2: MONETIZATION
+################################################################################
+
+--------------------------------------------------------------------------------
+2.1 SUBSCRIPTION TIERS & PAYWALL MODELS
+--------------------------------------------------------------------------------
+
+FORBES.COM
+- Paywall type: AI-powered dynamic paywall (rolled out Nov 2025)
+  - Adjusts in real-time per reader behavior
+  - Lets repeat visitors see a second story before discount offer
+- Digital subscription: ~$9.99/month
+- Annual digital: ~$74.99/year
+- Digital + Print: ~$94.99/year (first year)
+- Free tier: Limited access with ads
+- Subscriptions = ~9% of commercial revenue
+
+FINANCIAL TIMES (FT.COM)
+- Paywall type: AI-powered dynamic paywall (global rollout Jan 2025/2026)
+  - AI selects from menu of offers per reader
+  - 290% conversion rate improvement
+- FT Edit app: ~$4.99/month (curated daily selection)
+- Standard Digital: ~$34/month
+- Premium Digital: ~$50/month (includes Lex, deeper tools)
+- Print + Digital bundles
+- Free registration tier (limited articles)
+- Corporate / group subscriptions
+- Trial offers (dynamic pricing)
+- Gift articles
+
+BLOOMBERG.COM
+- Paywall type: Metered / hard paywall hybrid
+- Bloomberg.com digital: ~$34.99/month or ~$290/year
+- Bloomberg Terminal: ~$31,980/year (single user), ~$20,000/year (multi-seat)
+- Bloomberg All Access (digital + print Businessweek)
+- Bloomberg Law / Bloomberg Tax / Bloomberg Government: separate enterprise subscriptions
+- Bloomberg Intelligence: bundled with Terminal or standalone
+- Free tier: Limited article access
+
+REUTERS.COM
+- Paywall type: Metered paywall (launched Oct 2024)
+- Digital subscription: ~$1/week introductory, standard pricing TBD
+- B2B wire service licensing (Reuters News to media organizations)
+- Reuters Connect (B2B content marketplace, points-based model)
+- Reuters Professional (enterprise data/news platform via LSEG Workspace)
+- Free tier: Some articles accessible
+
+WALL STREET JOURNAL (WSJ.COM)
+- Paywall type: Dynamic/flexible paywall (cold/warm/hot reader scoring)
+- Digital: ~$38.99/month standard, $1 first-month promos
+- Student: ~$4/month
+- Print + Digital bundles
+- WSJ+ membership perks (events, offers)
+- Free Expression add-on: $5/month for existing subscribers
+- Barron's: separate subscription (~$4.99/month intro)
+- MarketWatch: freemium with premium tier
+- Corporate / group subscriptions
+- Gift subscriptions
+
+THE INFORMATION
+- Paywall type: Hard paywall (100% subscription, zero advertising)
+- Young Professionals (under 30): $199/year
+- Standard: $399/year (most popular)
+- All-Access: $749/year (guaranteed event access + plus-one)
+- Pro: $999/year (databases, org charts, deep research, surveys)
+- Free tier: None for articles (some newsletter content)
+
+POLITICO PRO
+- Paywall type: Hard paywall / enterprise SaaS model
+- Starting at ~$12,000+/year per seat
+- Federal package
+- State package
+- U.S. combined package (Federal + State)
+- Corporate / team licensing
+- Free Politico (ad-supported general coverage)
+- POLITICO Europe subscription (separate)
+
+AXIOS PRO
+- Paywall type: Hard paywall for Pro content
+- Individual Pro newsletter: $599/year
+- All-Access Pro bundle: $1,799 intro / $2,499 standard
+- Corporate group rates (sliding scale)
+- Free trial: 2 weeks
+- Free tier: 40+ free newsletters (ad-supported)
+
+THE ECONOMIST
+- Paywall type: Metered / dynamic
+- Digital: ~$20/month
+- Print + Digital: ~$25/month
+- Espresso app (included with subscription)
+- Audio edition (included)
+- Economist Intelligence Unit (EIU): separate enterprise subscription
+- Student discounts
+- Group / corporate subscriptions
+- Gift subscriptions
+- Free: limited articles per month
+
+GARTNER
+- Paywall type: Hard paywall / enterprise subscription
+- Research subscription: enterprise pricing (typically $30,000-$100,000+ annually)
+- Gartner for IT Leaders
+- Gartner for HR Leaders
+- Gartner for Finance Leaders
+- Gartner for Supply Chain Leaders
+- Gartner for Marketing Leaders
+- Gartner for Sales Leaders
+- Gartner for Legal & Compliance Leaders
+- Peer Insights: free (reviews platform)
+- Free: selected research summaries, press releases, Hype Cycle graphics
+
+McKINSEY GLOBAL INSTITUTE / McKINSEY.COM
+- Paywall type: Free (content is a marketing / thought leadership funnel)
+- All articles, reports, and insights: free access
+- Gated by email registration for some downloads
+- McKinsey Quarterly: free digital access
+- Revenue comes from consulting engagements, not content subscriptions
+- Alumni network: free for former McKinsey employees
+
+MORNING BREW / INDUSTRY DIVE
+- Paywall type: Free (ad-supported newsletters)
+- Morning Brew flagship: free (advertising-funded)
+- Industry Dive publications: free (advertising-funded)
+- Revenue model: native advertising, display ads, sponsored content
+- Events revenue
+- No paid subscription tier for readers
+
+STRATECHERY
+- Paywall type: Freemium (weekly free, daily paid)
+- Stratechery Plus: $15/month or $150/year
+- Includes: Daily Updates, Interviews, Sharp Tech, Sharp China, Dithering, Greatest of All Talk, Asianometry
+- Free: Weekly article
+- No advertising
+
+PUCK NEWS
+- Paywall type: Metered / hard paywall
+- Standard subscription: ~$100/year
+- Inner Circle (premium tier): higher price, limited plans
+  - Includes: bonus newsletters, merch, private conference calls, direct author access
+- Free tier: limited free articles
+- No advertising on subscriber content
+
+SEMAFOR
+- Paywall type: Free (event-and-advertising funded)
+- All editorial content: free
+- CEO Signal newsletter: invitation-only (free)
+- Revenue breakdown: 50%+ events, remainder advertising/sponsorship
+- Semafor Intelligence (sponsored content/research): paid by sponsors
+- No consumer subscription
+
+--------------------------------------------------------------------------------
+2.2 ADVERTISING & SPONSORED CONTENT
+--------------------------------------------------------------------------------
+
+- Forbes: Display ads, BrandVoice (native content hubs), programmatic, sponsored lists, branded content studio. Advertising = ~40% of revenue
+- FT: Display/programmatic, FT Commercial (branded content), sponsored special reports, sponsored newsletters
+- Bloomberg: Display, programmatic, Bloomberg Media Studio (branded content), Bloomberg Connects (advertising platform)
+- Reuters: Display, programmatic, sponsored content, Reuters Plus (branded content studio)
+- WSJ: Display, programmatic, Barron's Group custom content studio, sponsored events
+- The Information: ZERO advertising (100% subscription)
+- Politico: Display, programmatic, sponsored policy content, sponsored events
+- Axios: Display within free newsletters, native advertising (Smart Brevity Sponsor format), sponsored content
+- The Economist: Display, programmatic, Economist Impact (branded research), The Economist Solutions (corporate)
+- Gartner: Vendor sponsorship (research placements, events), Peer Insights vendor tools
+- McKinsey: No third-party advertising (content is consulting funnel)
+- Morning Brew/Dive: Native ads in newsletters, display, sponsored content, sponsored deep dives (primary revenue model)
+- Stratechery: ZERO advertising (100% subscription)
+- Puck: Minimal advertising (subscription-first)
+- Semafor: Founding partnerships (corporate sponsors), Semafor Intelligence (sponsored research), event sponsorship, newsletter sponsorship
+
+--------------------------------------------------------------------------------
+2.3 EVENTS & CONFERENCES
+--------------------------------------------------------------------------------
+
+- Forbes: 80+ annual events (CMO Summit, Under 30 Summit, Forbes Global CEO Conference, Women's Summit, CIO Summit)
+- FT: FT Live (100+ events/year), FT Global Banking Summit, FT Energy Transition Summit, FT Weekend Festival, FT Commodities Summit
+- Bloomberg: Bloomberg New Economy Forum, Bloomberg Invest, Bloomberg Technology Summit, Bloomberg Equality Summit, Bloomberg Green Summit, Bloomberg New Voices, Bloomberg Live series
+- Reuters: Reuters NEXT (flagship conference), Reuters Events (industry-specific), Reuters Pharma, Reuters Automotive
+- WSJ: WSJ Tech Live, WSJ CEO Council, WSJ CFO Network, WSJ CIO Network, WSJ The Future of Everything Festival, WSJ Women In, Barron's events
+- The Information: Subscriber-included events, monthly deep-dive calls, The Information Summit
+- Politico: Politico Live events, policy summits, congressional events
+- Axios: Axios events (What's Next series), Pro subscriber exclusive events
+- The Economist: Economist Impact events, The Economist Innovation Summit, sustainability conferences, roundtables
+- Gartner: Gartner IT Symposium/Xpo (flagship), Gartner Supply Chain Symposium, Gartner Security & Risk Management Summit, Gartner Data & Analytics Summit, 50+ conferences/year
+- McKinsey: MGI research presentations, Alumni Webcasts, partner panels (events support consulting, not revenue center)
+- Morning Brew/Dive: Industry Dive events, community meetups
+- Stratechery: No events
+- Puck: Private conference calls (Inner Circle), occasional live events
+- Semafor: 80+ events/year (2025), 100 planned for 2026. Flagship: World Economy Summit (rivaling Davos), Semafor Africa Summit, regional summits. Events = 50%+ of revenue
+
+--------------------------------------------------------------------------------
+2.4 DATA PRODUCTS & LICENSING
+--------------------------------------------------------------------------------
+
+- Forbes: Lists data licensing (Statista partnership), Forbes content licensing
+- FT: FT Data, content licensing, FT Strategies (consulting for media companies), FT Board Director Programme
+- Bloomberg: Bloomberg Terminal (data as product), B-PIPE (market data feed), Bloomberg Data License, Bloomberg Enterprise Access Point, Bloomberg PORT (portfolio analytics), Bloomberg INDEX
+- Reuters: Reuters News licensing to media, Reuters Connect (B2B content marketplace), LSEG Workspace (data terminal), Reuters data feeds
+- WSJ: Dow Jones Factiva (news database/archive), Dow Jones Newswires, Dow Jones DNA (data analytics), content licensing
+- The Information: Pro databases, org chart data, survey data, deal tracker data
+- Politico: Policy data (legislative trackers, regulatory trackers), directory data
+- Axios: Harris Poll data (partnership), research data
+- The Economist: EIU country risk data, EIU forecasting data, EIU industry data, Economist Impact research
+- Gartner: Research database licensing, benchmarking data, Peer Insights data, vendor scorecards
+- McKinsey: MGI datasets (free with reports), McKinsey Analytics (consulting deliverable)
+- Morning Brew/Dive: Audience data (for advertisers), industry benchmarks
+- Stratechery: None
+- Puck: None
+- Semafor: Semafor Intelligence research
+
+
+################################################################################
+SECTION 3: DISTRIBUTION
+################################################################################
+
+--------------------------------------------------------------------------------
+3.1 NEWSLETTER SYSTEMS
+--------------------------------------------------------------------------------
+
+Forbes:
+- Forbes Daily Cover Story, Forbes Vetted, ForbesWomen, Forbes Billionaires, sector-specific newsletters
+
+FT:
+- FirstFT (daily briefing), Due Diligence (M&A), Moral Money (ESG), #techFT, Energy Source, Trade Secrets, Scoreboard (sports business), FT Alphaville daily, Unhedged (markets), Climate Capital, Working It, Inside Politics, FT Weekend, 20+ total
+
+Bloomberg:
+- Bloomberg Daily, Bloomberg Markets, Bloomberg Technology, Bloomberg Wealth, Bloomberg Green, Bloomberg Crypto, Bloomberg Evening Briefing, Bloomberg Economics Daily, Five Things, Bloomberg Opinion Today, 20+ total
+
+Reuters:
+- Daily Briefing, Reuters Open Interest, sector newsletters, subscriber-only newsletters
+
+WSJ:
+- The 10-Point (daily), What's News, WSJ Markets AM/PM, CMO Today, CIO Journal, CFO Journal, Logistics Report, Pro Bankruptcy, Free Expression, 30+ total
+
+The Information:
+- The Briefing (daily), AI Agenda, Dealmaker, AI Infrastructure, Applied AI, The Weekend, Special Reports
+
+Politico Pro:
+- Playbook (flagship), Playbook PM, Morning Money, Morning Tech, Morning Energy, Morning Defense, Morning Trade, Morning Education, Morning Agriculture, Morning Cybersecurity, Pulse (health), E&E News newsletters, Brussels Playbook, London Playbook, 50+ total
+
+Axios:
+- Axios AM, Axios PM, Axios Finish Line, Axios Pro Deals, Axios Vitals, Axios Generate, Axios Login, Axios Media Trends, Axios Macro, Axios Sneak Peek, Axios Local (25+ cities), 40+ total free, Pro tier on top
+
+The Economist:
+- Espresso (daily brief), The Economist Today, Off the Charts (on Substack), Economist Reads, The World in Brief, money-specific newsletters
+
+Gartner:
+- Research alerts, topic-based email digests, Peer Community digests
+
+McKinsey:
+- McKinsey Insights newsletter, practice-area alerts, McKinsey Quarterly updates, McKinsey Daily Read, sector-specific alerts
+
+Morning Brew / Industry Dive:
+- Morning Brew flagship, CFO Brew, HR Brew, Marketing Brew, Healthcare Brew, IT Brew, Retail Brew, Tech Brew, Revenue Brew + 37 Industry Dive newsletters
+
+Stratechery:
+- Weekly free article (email), Daily Update (email), Asianometry newsletter
+
+Puck:
+- Author-specific newsletters (customizable selection), Inner Circle bonus newsletters. Authors include: Matt Belloni (Hollywood), William Cohan (Wall Street), Julia Ioffe (Washington), Teddy Schleifer (Silicon Valley), Lauren Sherman (Fashion), Marion Maneker (Art), etc.
+
+Semafor:
+- Flagship (daily), Semafor Business, Semafor Tech, Semafor Climate, Semafor Energy, Semafor Africa, Semafor Media, Semafor Security, Semafor Politics & Policy, Semafor Entertainment, CEO Signal (invite-only), Semafor China, Semafor Asia, Semafor Europe, Semafor Middle East
+
+--------------------------------------------------------------------------------
+3.2 PODCAST & AUDIO
+--------------------------------------------------------------------------------
+
+Forbes: Forbes podcast network (Billionaires, Under 30, etc.)
+FT: News Briefing, Behind the Money, FT Film, Unhedged, The Rachman Review, FT News in Focus, Culture Call, 10+ series; full audio articles
+Bloomberg: Bloomberg Businessweek, Odd Lots, Bloomberg Talks, Trumponomics, Masters in Business, Surveillance, Bloomberg Daybreak, Bloomberg Technology, 20+ series; Bloomberg Radio 24/7; Bloomberg TV audio
+Reuters: Reuters World News, Reuters Breakingviews, Reuters Business, multiple series
+WSJ: The Journal (daily narrative), Potomac Watch, Take On the Week, WSJ Special Access, WSJ Your Money Briefing, WSJ What's News, Tech News Briefing, Bad Bets, 15+ series; audio articles
+The Information: TITV (daily video/audio show), podcast feed
+Politico: Playbook Deep Dive, Politico Dispatch, Women Rule, Power Switch, Global Insider, multiple series
+Axios: Axios Today (daily), Axios Re:Cap, How It Happened, Hard Truths
+The Economist: The Intelligence (daily), Babbage (tech), Money Talks, Drum Tower (China), The Economist Asks, The Economist Reads, Boss Class, full audio edition of weekly print
+Gartner: Gartner ThinkCast, The Gartner Talent Angle, Gartner Supply Chain Podcast
+McKinsey: The McKinsey Podcast, McKinsey on Books, McKinsey on Start-ups, McKinsey Talks Operations, practice-specific podcasts
+Morning Brew/Dive: Morning Brew Daily Show, Business Casual, Imposters, Founder's Journal, Money with Katie
+Stratechery: Sharp Tech, Sharp China, Dithering, Greatest of All Talk, Asianometry (all subscriber-only except select episodes)
+Puck: Puck podcasts tied to verticals
+Semafor: Limited podcast presence; events audio
+
+--------------------------------------------------------------------------------
+3.3 VIDEO
+--------------------------------------------------------------------------------
+
+- Forbes: Forbes video (interviews, explainers, list reveals)
+- FT: FT Film (documentaries), FT video reports
+- Bloomberg: Bloomberg TV (24/7 live), Bloomberg Originals, QuickTake video, Bloomberg Businessweek video
+- Reuters: Reuters TV/video (wire service video), Reuters livestreams
+- WSJ: WSJ Video (documentaries, news clips, opinion video), WSJ Live
+- The Information: TITV (daily live show, on-demand)
+- Politico: Politico video segments
+- Axios: Axios on HBO (documentary/interview series)
+- The Economist: Economist Films, YouTube channel
+- Gartner: Conference recordings, webinar recordings, analyst presentations
+- McKinsey: McKinsey & Company YouTube, expert interviews, animated explainers
+- Morning Brew/Dive: Social video (TikTok, YouTube, Instagram Reels), comedy shows
+- Stratechery: None (audio-only)
+- Puck: Limited
+- Semafor: Event livestreams, video segments
+
+--------------------------------------------------------------------------------
+3.4 MOBILE APPS
+--------------------------------------------------------------------------------
+
+- Forbes: iOS + Android app
+- FT: iOS + Android app, FT Edit app (curated daily), Apple Watch
+- Bloomberg: iOS + Android app, Bloomberg Professional app (Terminal mobile), Bloomberg Connects
+- Reuters: iOS + Android app
+- WSJ: iOS + Android app, Barron's app, MarketWatch app
+- The Information: iOS + Android app (with TITV, org charts, Deep Research)
+- Politico: iOS + Android app
+- Axios: iOS + Android app
+- The Economist: iOS + Android app, Espresso app
+- Gartner: Gartner mobile app, conference apps
+- McKinsey: McKinsey Insights app (iOS + Android)
+- Morning Brew/Dive: Morning Brew app
+- Stratechery: Web-based (Passport subscription portal)
+- Puck: iOS app
+- Semafor: Web-based (no dedicated app)
+
+--------------------------------------------------------------------------------
+3.5 OTHER DISTRIBUTION
+--------------------------------------------------------------------------------
+
+RSS Feeds: FT, Bloomberg, Reuters, WSJ, The Economist, Forbes, Axios, Stratechery, Puck, Semafor - most offer RSS
+SEO Architecture: All platforms invest heavily; Forbes notable for massive organic search footprint
+Social Distribution: All platforms on X/Twitter, LinkedIn, Facebook, Instagram, YouTube, TikTok (varies); Bloomberg QuickTake purpose-built for social; Morning Brew 70% reach outside inbox via social
+Content Syndication: Reuters (wire service to 1000s of outlets), Bloomberg (wire), AP partnerships; Forbes contributor content widely syndicated
+Push Notifications: All mobile apps support push; Bloomberg, Reuters, WSJ notable for breaking news alerts
+API Access: Bloomberg API, Reuters/LSEG APIs, Dow Jones DNA API, FT Content API (enterprise), Gartner APIs (enterprise)
+Apple News: Forbes, Bloomberg, WSJ, Reuters, FT, Axios, The Economist present
+Google News Showcase: Most major platforms participate
+Flipboard / News Aggregators: Most platforms syndicated
+Smart Speakers / Voice: The Economist, Bloomberg, WSJ, Reuters available via Alexa/Google Assistant briefings
+
+
+################################################################################
+SECTION 4: USER EXPERIENCE
+################################################################################
+
+--------------------------------------------------------------------------------
+4.1 SEARCH & DISCOVERY
+--------------------------------------------------------------------------------
+
+- Site search: All platforms (full-text search with filters by date, section, author, content type)
+- Personalization / My Feed: FT (myFT), Bloomberg, WSJ, Reuters, Forbes, Axios, Gartner
+- Reading lists / Save for later: FT (myFT save), WSJ (saved articles), Bloomberg (saved), The Economist, The Information
+- Bookmarks: FT, WSJ, Bloomberg, Reuters, Gartner
+- Follow topics: FT (myFT topics), WSJ (alerts by topic), Bloomberg, Reuters, Politico Pro (custom alerts), Gartner
+- Follow authors/journalists: FT, Reuters (planned), The Information, Puck (core model), Bloomberg
+- Commenting: FT (comments on articles), WSJ (comments), Bloomberg (limited), Forbes (reader comments), The Information (online community/forum), Gartner Peer Community
+- Author pages: All platforms (bio, article archive, social links)
+- Topic / tag pages: All platforms (taxonomy-driven section pages)
+- Related content: All platforms (algorithmic or editorial "More on this topic")
+- Trending / Most read: Forbes, FT, Bloomberg, Reuters, WSJ, The Economist, Morning Brew
+- Editor's picks / Curated: FT (Editor's Choice), Bloomberg (Must Reads), WSJ (Editors' Picks), The Economist (Espresso picks), Reuters (Top Stories)
+
+--------------------------------------------------------------------------------
+4.2 PERSONALIZATION & NOTIFICATIONS
+--------------------------------------------------------------------------------
+
+- FT myFT: Follow topics, companies, authors; portfolio tracker; email digests
+- Bloomberg: Customizable watchlists, market alerts, portfolio tracking
+- WSJ: Custom alerts by topic, company, keyword; dynamic paywall adapts to interests
+- Reuters: Story following, journalist following (planned), customized verticals
+- Politico Pro: Custom policy alerts, daily digests, saved searches, tracked legislation
+- Gartner: Role-based personalized research recommendations, saved searches, custom alerts
+- Forbes: AI-powered content recommendations
+- The Information: Newsletter preference management, community interest matching
+
+--------------------------------------------------------------------------------
+4.3 READING EXPERIENCE
+--------------------------------------------------------------------------------
+
+- Dark mode: FT, Bloomberg, WSJ, The Economist, The Information, Forbes (app)
+- Font size adjustment: FT, Bloomberg, WSJ, The Economist, Forbes, Reuters
+- Estimated read time: Axios (core to Smart Brevity), The Economist, Morning Brew
+- Print-friendly views: FT, WSJ, The Economist, Forbes
+- Gift articles: FT (limited sharing), WSJ, Bloomberg, NYT-style sharing links
+- Offline reading: FT app, Bloomberg app, WSJ app, The Economist app, The Information app
+- Text-to-speech / audio: FT (audio articles), WSJ (audio), The Economist (full audio edition), Bloomberg (select), Forbes (select)
+- Translation: FT (limited), Reuters (multi-language), Bloomberg (multi-language)
+- Accessibility: All major platforms (WCAG compliance varies); FT, BBC, WSJ notable
+
+
+################################################################################
+SECTION 5: DATA & INTELLIGENCE
+################################################################################
+
+--------------------------------------------------------------------------------
+5.1 MARKET DATA & FINANCIAL TOOLS
+--------------------------------------------------------------------------------
+
+Bloomberg:
+- Real-time market data (equities, bonds, commodities, FX, crypto)
+- Bloomberg Terminal functions (20,000+ functions)
+- Bloomberg indices (Bloomberg Barclays indices, Bloomberg Galaxy Crypto Index)
+- Bloomberg Intelligence (350+ analysts, industry/company research)
+- Company financials, earnings, SEC filings
+- Portfolio analytics (PORT)
+- Charting (advanced technical/fundamental)
+- Bloomberg Fair Value models
+- Bloomberg Economics (forecasts, indicators)
+- Bloomberg NEF (New Energy Finance data)
+- Launchpad (customizable multi-asset dashboards)
+
+FT:
+- Markets data pages (equities, bonds, commodities, currencies, funds)
+- Company data / financials
+- FT 500 / FT Global 500
+- Markets heatmaps
+- Portfolio tracker (myFT)
+- Lex investment analysis
+- FT Alphaville Markets Live
+
+WSJ / Dow Jones:
+- WSJ Markets section (real-time quotes, indices)
+- MarketWatch (comprehensive market data, watchlists, virtual stock exchange)
+- Barron's stock picks, fund screener
+- Dow Jones Industrial Average, S&P 500, Nasdaq tracking
+- Company research / SEC filings
+- Economic indicators calendar
+- Earnings calendar
+- Mutual fund / ETF screeners
+
+Reuters / LSEG:
+- LSEG Workspace (replacing Eikon) - real-time data terminal
+- Reuters Datastream (historical data)
+- Reuters News feeds (API)
+- Company financials / fundamentals
+- Tradeweb fixed income data
+- Market indices
+
+Forbes:
+- Forbes lists-as-data (Billionaires rankings, company valuations)
+- Forbes Advisor (personal finance tools, calculators, product comparisons)
+
+The Economist:
+- Big Mac Index (PPP indicator)
+- Democracy Index
+- Global Liveability Index
+- Cost of Living Index
+- Glass Ceiling Index
+- EIU country risk ratings
+- EIU five-year forecasts (200+ countries)
+- Commodity price data
+- Economic indicators tables (weekly in print/digital)
+
+Gartner:
+- Magic Quadrant positioning data
+- Hype Cycle maturity assessments
+- Peer Insights ratings/review data
+- IT spending forecasts
+- Benchmarking tools (IT budget, staffing, operational metrics)
+- Vendor scorecards
+- Technology adoption data
+
+McKinsey:
+- MGI Productivity Dashboard
+- Global Institute datasets
+- Industry digitization index
+- Survey-based benchmarking data (published in reports)
+
+--------------------------------------------------------------------------------
+5.2 RANKINGS, LISTS & INDICES
+--------------------------------------------------------------------------------
+
+Forbes: Billionaires, Forbes 400, Global 2000, 30 Under 30, Most Powerful Women, World's Most Innovative Companies, Best Employers, America's Best Startup Employers, Cloud 100, Midas List, Forbes Advisor Best-of lists
+FT: FT 500, FT Global MBA ranking, FT European Business Schools ranking, FT/Statista rankings, FT 1000 (fastest-growing European companies)
+Bloomberg: Bloomberg Billionaires Index (daily updated), Bloomberg 50, Bloomberg New Economy Gateway
+WSJ: WSJ/THE World University Rankings, WSJ Barron's Top Financial Advisors, WSJ Best-Managed Companies
+Reuters: Reuters Top 100 (innovation/technology)
+The Economist: Democracy Index, Liveability Ranking, Glass Ceiling Index, Big Mac Index, Safe Cities Index (EIU)
+Gartner: Magic Quadrant, Hype Cycle, Cool Vendors, Customers' Choice (Peer Insights)
+McKinsey: Global Institute research-embedded rankings/indices (ad hoc per report)
+Morning Brew: None proprietary
+Axios: Axios-Harris Poll 100 (brand reputation)
+The Information: Deal tracker leaderboards, VC/startup data rankings
+Politico Pro: Power lists, influence rankings
+Puck: None
+Semafor: None
+Stratechery: None
+
+--------------------------------------------------------------------------------
+5.3 RESEARCH DATABASES & TRACKERS
+--------------------------------------------------------------------------------
+
+- Bloomberg Terminal: 20,000+ data functions, company universe, filings database
+- Dow Jones Factiva: Global news archive (33,000+ sources)
+- Reuters/LSEG Workspace: Company fundamentals, news archive, deals database
+- FT: FT Archive (since 1888), company data
+- EIU: 200+ country reports, industry reports, city data
+- Gartner: Full research archive, vendor/product database, Peer Insights review database
+- Politico Pro: Legislative database, regulatory tracker, bill tracker, committee tracker, floor vote tracker, directories (Congress, agencies, states)
+- The Information: Org chart database (60+ companies), VC deal tracker, cloud spending tracker, startup database
+- McKinsey: Case/report archive (publicly accessible)
+- Axios: Limited (Harris Poll data)
+- Forbes: List archive / historical billionaire data
+
+--------------------------------------------------------------------------------
+5.4 CALCULATORS & INTERACTIVE TOOLS
+--------------------------------------------------------------------------------
+
+- Bloomberg: Bond calculators, currency converters, mortgage calculators, IPO tracker
+- WSJ/MarketWatch: Retirement calculator, mortgage calculator, tax calculator, savings calculator, virtual stock exchange
+- Forbes Advisor: Insurance calculators, loan calculators, credit card comparisons, product comparison tools
+- FT: Mortgage calculator, savings calculator
+- Reuters Breakingviews: Interactive financial calculators
+- The Economist: Big Mac Index interactive, country comparators
+- Gartner: BuySmart (vendor evaluation tool), benchmarking tools, cost optimization calculators, decision frameworks
+- McKinsey: Limited (embedded in reports)
+
+
+################################################################################
+SECTION 6: COMMUNITY & NETWORK
+################################################################################
+
+--------------------------------------------------------------------------------
+6.1 EVENTS PLATFORMS (covered in Section 2.3 above - cross-reference)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+6.2 MEMBERSHIP COMMUNITIES & COUNCILS
+--------------------------------------------------------------------------------
+
+Forbes:
+- Forbes Councils (CMO Network, CIO Network, CEO Network, Technology Council, Business Council, Finance Council, Agency Council, etc. - 30+ councils)
+- Forbes Under 30 community/alumni network
+
+FT:
+- FT Board Director Programme
+- FT Forums (closed-door executive roundtables)
+- The Long Room (Alphaville subscriber community)
+
+Bloomberg:
+- Bloomberg New Economy Forum network
+- Bloomberg New Voices (emerging leader network)
+
+Reuters:
+- Reuters NEXT community
+- Reuters Institute for the Study of Journalism (academic research)
+
+WSJ:
+- WSJ CEO Council
+- WSJ CFO Network
+- WSJ CIO Network
+- WSJ Women In community
+- WSJ The Trust (Barron's Group membership)
+- WSJ+ (subscriber perks program)
+
+The Information:
+- Online subscriber community (all plans)
+- Monthly deep-dive calls with reporters
+- Event networking
+
+Politico:
+- Politico policy communities (by sector)
+
+Axios:
+- Axios Pro subscriber events
+
+The Economist:
+- Economist Impact network
+- Economist Events community
+
+Gartner:
+- Gartner Peer Community (online forums)
+- Gartner C-level Communities (local, in-person)
+- Gartner CISO Circle
+- Gartner Research Circle (panelist community)
+
+McKinsey:
+- McKinsey Alumni Network (~70,000 alumni)
+- McKinsey Network (digital platform for alumni connections)
+- Alumni Webcasts and events
+
+Morning Brew:
+- Emerging leaders community (events)
+
+Stratechery:
+- No formal community (subscriber-only content, no forum)
+
+Puck:
+- Inner Circle (premium membership with direct author access, private calls)
+
+Semafor:
+- CEO Signal community (75% of Fortune 500 CEOs)
+- World Economy Summit attendee network
+
+--------------------------------------------------------------------------------
+6.3 CONTRIBUTOR / EXPERT NETWORKS
+--------------------------------------------------------------------------------
+
+- Forbes: 1,200+ expert contributors (largest in media)
+- FT: Guest columnists, By Invitation contributors
+- Bloomberg: Bloomberg Opinion columnists, Bloomberg Intelligence analysts (350+)
+- Reuters: Wire service journalists globally, Breakingviews columnists
+- WSJ: Guest op-ed contributors, Expert Voices
+- The Economist: By Invitation series (external experts)
+- Gartner: 2,500+ research analysts, Peer Insights verified reviewers
+- McKinsey: Partner/consultant authors, external collaborators
+- Axios: Expert Voices (contributed content program)
+- Morning Brew: Guest contributors
+- Puck: Author-as-brand model (each writer is a franchise)
+- Semafor: Correspondent network globally
+- Stratechery: Solo author (Ben Thompson) + Asianometry (Jon Y)
+- The Information: 60-person newsroom
+- Politico: Correspondent bureau network (DC, Brussels, state capitals)
+
+--------------------------------------------------------------------------------
+6.4 JOB BOARDS & CAREER FEATURES
+--------------------------------------------------------------------------------
+
+- FT: FT Jobs / Executive Appointments
+- WSJ: WSJ Jobs (Dow Jones)
+- Bloomberg: Bloomberg Careers (internal)
+- Reuters: Jobs (via LSEG)
+- Forbes: Forbes Careers / Job Board (historical)
+- The Economist: Jobs.economist.com (executive job board)
+- Gartner: Gartner Jobs (internal), career research/guidance content
+- McKinsey: Careers page (recruiting), Alumni job board
+- Morning Brew/Dive: Job board features in newsletters
+- Politico: Jobs/careers section
+- Others: Limited or no dedicated job boards
+
+--------------------------------------------------------------------------------
+6.5 AWARDS PROGRAMS
+--------------------------------------------------------------------------------
+
+- Forbes: 30 Under 30, Forbes 400, Billionaires (recognition as award-adjacent)
+- FT: FT Innovative Lawyers, FT/IFC Transformational Business Awards, Banker of the Year
+- Bloomberg: Bloomberg 50, Bloomberg New Economy Gateway, Bloomberg Businessweek Best B-Schools
+- Gartner: Gartner Eye on Innovation Award, Peer Insights Customers' Choice
+- The Economist: Economist Impact sustainability awards
+- McKinsey: McKinsey Awards (consulting industry), Book of the Year
+- Morning Brew: None
+- WSJ: WSJ Innovator Awards, WSJ Magazine awards
+- Reuters: Reuters journalism awards (internal/industry)
+- Semafor: None yet
+- Puck: None
+- Stratechery: None
+- Axios: None dedicated
+- The Information: None dedicated
+- Politico: None dedicated
+
+
+################################################################################
+SECTION 7: INFRASTRUCTURE & TECHNOLOGY
+################################################################################
+
+--------------------------------------------------------------------------------
+7.1 CMS & PUBLISHING TECHNOLOGY
+--------------------------------------------------------------------------------
+
+- Forbes: Proprietary CMS (formerly WordPress-based "Bertie" platform, evolved with AI-powered editorial tools)
+- FT: Proprietary CMS (Next FT platform, built in-house with Node.js/microservices)
+- Bloomberg: Proprietary CMS (built for wire-speed publishing + Terminal integration)
+- Reuters: Proprietary CMS (Lynx Insight AI-assisted newsroom tool, wire service architecture)
+- WSJ: Proprietary CMS (Dow Jones publishing platform, shared with Barron's/MarketWatch)
+- The Economist: Proprietary CMS
+- The Information: Custom-built platform
+- Politico: CMS (historically WordPress VIP, evolved to custom)
+- Axios: Custom-built platform (Smart Brevity format-native)
+- Gartner: Proprietary research management + publishing platform
+- McKinsey: Custom CMS for mckinsey.com
+- Morning Brew: Custom newsletter platform + integrations (Iterable for email delivery, Hightouch for data)
+- Stratechery: WordPress (with Passport for subscription management)
+- Puck: Custom-built platform
+- Semafor: Custom-built platform
+
+--------------------------------------------------------------------------------
+7.2 CDN & PERFORMANCE
+--------------------------------------------------------------------------------
+
+- All major platforms: Cloudflare, Fastly, Akamai, or AWS CloudFront (varies)
+- Bloomberg, Reuters, WSJ: Ultra-low-latency infrastructure for real-time market data
+- FT: Fastly CDN (documented public architecture)
+- AMP / Core Web Vitals compliance: Most platforms optimize for Google performance metrics
+
+--------------------------------------------------------------------------------
+7.3 AUTHENTICATION & USER PROFILES
+--------------------------------------------------------------------------------
+
+- All subscription platforms: Email/password registration, social login (Google, Apple, Facebook varies)
+- Bloomberg: Bloomberg ID (consumer) + Bloomberg Terminal login (professional)
+- FT: FT Account (consumer), FT Licence (corporate/institutional)
+- WSJ: Dow Jones Account (shared across WSJ, Barron's, MarketWatch, Factiva)
+- Gartner: Gartner account (enterprise SSO integration)
+- McKinsey: McKinsey account (free registration), Alumni portal (separate)
+- The Information: Subscription account + Passport portal
+- Politico Pro: Enterprise SSO, IP-based authentication, individual login
+- Reuters: Reuters.com account + LSEG Workspace login (professional)
+- Morning Brew: Email-only (newsletter subscriber)
+
+Single Sign-On (SSO): FT, Bloomberg (enterprise), Gartner, Politico Pro, WSJ (corporate) support enterprise SSO (SAML, Okta, etc.)
+
+--------------------------------------------------------------------------------
+7.4 ANALYTICS & EXPERIMENTATION
+--------------------------------------------------------------------------------
+
+- AI-powered paywalls: Forbes (AI dynamic paywall), FT (AI paywall, 290% conversion lift), WSJ (cold/warm/hot reader scoring)
+- A/B testing: All major platforms test headlines, paywall placement, offers, layouts
+- Reader engagement scoring: FT (propensity models), WSJ (subscription intent), Forbes (behavior-based), Bloomberg
+- Subscriber churn prediction: FT (lifetime value modeling), Bloomberg, WSJ
+- Newsletter analytics: Open rates, click rates, engagement scoring (Morning Brew ~50% open rates benchmark)
+- Event analytics: Semafor, Forbes, FT, Bloomberg track event ROI
+- Advertising analytics: Programmatic dashboards, brand lift studies (all ad-supported platforms)
+
+--------------------------------------------------------------------------------
+7.5 ACCESSIBILITY
+--------------------------------------------------------------------------------
+
+- WCAG compliance: FT (strong public commitment), WSJ, Bloomberg, Reuters, The Economist - all major platforms work toward WCAG 2.1 AA
+- Screen reader support: All major platforms
+- Keyboard navigation: All major platforms
+- Alt text / image descriptions: Varies (FT, BBC-standard Reuters strongest)
+- Audio alternatives: The Economist (full audio edition), FT (audio articles), WSJ (audio articles)
+- High contrast / font sizing: Most platforms offer
+
+--------------------------------------------------------------------------------
+7.6 INTERNATIONALIZATION & MULTI-EDITION
+--------------------------------------------------------------------------------
+
+Multi-Language:
+- Reuters: Available in 16+ languages (English, French, Spanish, Portuguese, German, Italian, Russian, Arabic, Japanese, Chinese, etc.)
+- Bloomberg: Multiple language editions (Japanese, Chinese, Arabic, etc.)
+- FT: Primarily English, FT Chinese (ftchinese.cn), limited Japanese
+- Forbes: 45+ licensed local editions (Forbes France, Forbes Japan, Forbes India, Forbes Africa, Forbes Middle East, etc.)
+- The Economist: Primarily English, Economist espanol, some translated content
+- McKinsey: Available in multiple languages (localized offices produce content)
+- WSJ: WSJ China, WSJ Japan (discontinued/reduced)
+- Gartner: Research available in multiple languages, regional offices
+
+Country/Regional Editions:
+- Reuters: Global wire with regional desks
+- Bloomberg: Global with regional editions
+- FT: UK, US, Asia editions; FT Chinese
+- Forbes: 45+ licensed country editions
+- Politico: US, Europe (Brussels), Politico Canada
+- Semafor: Verticals by region (Africa, Asia, Europe, Middle East, China)
+- The Economist: Global with occasional region-specific content
+- WSJ: US-primary, historically Asia/China editions
+- Gartner: Regional research and events (Americas, EMEA, APAC)
+- McKinsey: Office-based regional content
+
+--------------------------------------------------------------------------------
+7.7 AI & EMERGING TECHNOLOGY
+--------------------------------------------------------------------------------
+
+- Forbes: AI dynamic paywall, AI content recommendations
+- FT: AI paywall optimization, AI-personalized messaging, AI-assisted newsroom tools
+- Bloomberg: AI integrated into Terminal (Bloomberg GPT research), AI content tools
+- Reuters: Lynx Insight (AI newsroom assistant for story detection, data analysis, automated text)
+- WSJ: AI-driven paywall personalization, experimental AI features
+- Politico Pro: Policy Intelligence Assistant (AI-generated Impact Activity Reports, custom policy explainers from AI)
+- The Information: Deep Research (AI-powered Q&A grounded in TI journalism, Pro feature)
+- Gartner: AI-enhanced research navigation, recommendation engine
+- McKinsey: Lilli (internal AI assistant, some client-facing)
+- Axios: Smart Brevity AI (writing assistance tool, licensed to enterprises)
+- Morning Brew: Behavioral automation (SubHubs), AI newsletter personalization
+- The Economist: AI experiments (not publicly prominent)
+- Stratechery: None prominent
+- Puck: None prominent
+- Semafor: None prominent
+
+
+################################################################################
+SECTION 8: CROSS-PLATFORM COMPONENT MATRIX
+################################################################################
+
+The following matrix identifies which components constitute a "world-class
+media narrative engine" based on presence across the 15 platforms analyzed.
+
+Component                        | Platforms Using (out of 15)
+---------------------------------|----------------------------
+Editorial articles               | 15/15 (universal)
+Newsletter system                | 15/15 (universal)
+Mobile app                       | 13/15 (Stratechery, Semafor excluded)
+Podcast/audio                    | 15/15 (universal, varying depth)
+Video content                    | 14/15 (Stratechery excluded)
+Social distribution              | 15/15 (universal)
+Search functionality             | 15/15 (universal)
+Author/byline pages              | 15/15 (universal)
+Topic/tag taxonomy               | 15/15 (universal)
+Paywall/subscription             | 13/15 (Morning Brew, Semafor free; McKinsey free)
+Events/conferences               | 14/15 (Stratechery excluded)
+Data visualization               | 14/15 (Stratechery minimal)
+Opinion/commentary section       | 14/15 (Morning Brew excluded)
+Personalization/follow           | 12/15
+Push notifications               | 13/15
+Community/forums                 | 10/15
+Contributor/expert network       | 12/15
+Market/financial data            | 8/15
+Rankings/lists                   | 11/15
+Job board                        | 7/15
+Awards programs                  | 8/15
+Research databases               | 10/15
+Calculators/interactive tools    | 7/15
+AI-powered features              | 11/15
+Multi-language/edition           | 9/15
+Corporate/enterprise tier        | 11/15
+Content licensing/syndication    | 10/15
+RSS feeds                        | 13/15
+API access (enterprise)          | 8/15
+Gift articles                    | 6/15
+Reading lists/bookmarks          | 10/15
+
+
+################################################################################
+SECTION 9: REVENUE MODEL ARCHETYPES
+################################################################################
+
+Archetype 1: SUBSCRIPTION-DOMINANT (Hard Paywall)
+- The Information (100% subscription, zero ads)
+- Stratechery (100% subscription, zero ads)
+- Politico Pro (enterprise subscription)
+- Gartner (enterprise subscription + events)
+
+Archetype 2: SUBSCRIPTION + ADVERTISING HYBRID
+- FT (subscription-led, supplemented by advertising)
+- Bloomberg (consumer subscription + Terminal + advertising)
+- WSJ (subscription + advertising + data products)
+- The Economist (subscription + advertising + EIU data)
+- Puck (subscription-first, minimal advertising)
+
+Archetype 3: ADVERTISING-DOMINANT
+- Forbes (advertising ~40%, subscriptions ~9%, events, licensing)
+- Morning Brew / Industry Dive (newsletter advertising = primary revenue)
+- Axios (free newsletters ad-supported + Pro subscriptions)
+
+Archetype 4: EVENTS-DOMINANT
+- Semafor (events 50%+ of revenue, advertising remainder)
+
+Archetype 5: CONSULTING FUNNEL (Free Content)
+- McKinsey (all content free; drives consulting revenue)
+
+Archetype 6: DATA/TERMINAL PRODUCT
+- Bloomberg Terminal ($31,980/user/year)
+- Reuters/LSEG Workspace (enterprise data platform)
+- Dow Jones Factiva / DNA (news data products)
+- Gartner (research-as-product)
+
+Archetype 7: WIRE SERVICE / LICENSING
+- Reuters (B2B news licensing + Reuters Connect marketplace)
+- Bloomberg News (wire service to clients)
+
+
+################################################################################
+SECTION 10: ESSENTIAL COMPONENTS OF A WORLD-CLASS MEDIA NARRATIVE ENGINE
+################################################################################
+
+Based on analysis across all 15 platforms, the following represents the
+complete component set that defines a world-class media narrative platform:
+
+TIER 1 - ABSOLUTELY ESSENTIAL (present in 13+ of 15 platforms):
+1.  Original editorial content (articles, analysis, opinion)
+2.  Newsletter distribution system (daily/weekly email products)
+3.  Podcast / audio content
+4.  Video content (original, clips, live)
+5.  Mobile application (iOS + Android)
+6.  Site search with filters
+7.  Author/byline pages with article archives
+8.  Topic/tag taxonomy and section pages
+9.  Social media distribution (multi-platform)
+10. Push notifications / breaking news alerts
+11. Events / live programming
+12. RSS feeds
+13. Subscription or registration system
+
+TIER 2 - STRONGLY RECOMMENDED (present in 9-12 platforms):
+14. Paywall (hard, metered, dynamic, or AI-powered)
+15. Data visualization / interactive graphics
+16. Opinion / commentary vertical
+17. Personalization engine (follow topics, authors, companies)
+18. Reading lists / bookmarks / save-for-later
+19. Contributor / expert network
+20. Rankings / lists / indices
+21. Research databases / archives
+22. Corporate / enterprise subscription tier
+23. Content licensing / syndication
+24. AI-powered features (recommendations, paywall, newsroom tools)
+25. Community / membership programs
+
+TIER 3 - DIFFERENTIATION FEATURES (present in 5-8 platforms):
+26. Real-time market / financial data
+27. Job board / career section
+28. Awards / recognition programs
+29. Calculators / interactive tools
+30. Multi-language support
+31. Multi-country / regional editions
+32. API access (enterprise)
+33. Gift article sharing
+34. Executive councils / C-suite networks
+35. Native advertising / branded content platform
+36. Data products (licensed datasets, analytics)
+
+TIER 4 - ADVANCED / NICHE (present in fewer than 5 platforms):
+37. Professional data terminal (Bloomberg Terminal, LSEG Workspace)
+38. Wire service distribution
+39. AI research assistant (Deep Research, Policy Intelligence Assistant)
+40. Org chart databases
+41. Legislative / regulatory tracking tools
+42. Proprietary economic indices (Big Mac Index, Democracy Index)
+43. Invitation-only executive newsletters
+44. AI-powered dynamic paywall
+45. Content marketplace (Reuters Connect)
+46. Consulting funnel model (free content driving services revenue)
+47. Smart Brevity / structured-format article architecture
+48. Virtual stock exchange / simulation tools
+
+================================================================================
+END OF AUDIT
+================================================================================

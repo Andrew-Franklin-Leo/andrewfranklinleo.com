@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUREYA MASTER INDEX</title>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none; }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F3460;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #533483;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E94560;
+        }
+        body {
+            background-color: #1A1A2E;
+            color: #E0E0E0;
+        }
+        .card {
+            background-color: #16213E;
+            border: 1px solid #0F3460;
+        }
+        .card:hover {
+            border-color: #533483;
+            box-shadow: 0 0 20px rgba(83, 52, 131, 0.3);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #0F3460, #16213E);
+            border-left: 4px solid #533483;
+        }
+        .action-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .action-sell {
+            background-color: rgba(233, 69, 96, 0.2);
+            color: #E94560;
+            border: 1px solid #E94560;
+        }
+        .action-deploy {
+            background-color: rgba(83, 52, 131, 0.2);
+            color: #B89FD5;
+            border: 1px solid #533483;
+        }
+        .action-build {
+            background-color: rgba(15, 52, 96, 0.3);
+            color: #5DADE2;
+            border: 1px solid #0F3460;
+        }
+        .action-reference {
+            background-color: rgba(200, 200, 200, 0.1);
+            color: #B0B0B0;
+            border: 1px solid #404040;
+        }
+        .tab-button {
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab-button.active {
+            border-bottom-color: #533483;
+            color: #E0E0E0;
+        }
+        .search-input {
+            background-color: #0F3460;
+            border: 1px solid #533483;
+            color: #E0E0E0;
+        }
+        .search-input::placeholder {
+            color: #7A7A9E;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #E94560;
+            box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+        }
+        .category-header {
+            background-color: #0F3460;
+            border-left: 4px solid #E94560;
+            padding: 12px 16px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px;
+        }
+        .file-card {
+            background-color: #16213E;
+            border: 1px solid #0F3460;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+        .file-card:hover {
+            border-color: #533483;
+            background-color: #1A2844;
+        }
+        .file-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #E0E0E0;
+            margin-bottom: 6px;
+        }
+        .file-filename {
+            font-size: 12px;
+            color: #7A7A9E;
+            font-family: monospace;
+            margin-bottom: 8px;
+        }
+        .file-description {
+            font-size: 13px;
+            color: #B0B0B0;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .file-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 11px;
+        }
+        .entity-tag {
+            background-color: rgba(83, 52, 131, 0.3);
+            color: #B89FD5;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid #533483;
+        }
+        .size-badge {
+            color: #7A7A9E;
+            font-weight: 500;
+        }
+        .priority-box {
+            background-color: #0F3460;
+            border-left: 4px solid #E94560;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+        .priority-number {
+            display: inline-block;
+            background-color: #E94560;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .revenue-highlight {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-950" x-cloak>
+    <div x-data="masterIndex()" class="min-h-screen">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-700 sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-6">
+                <h1 class="text-4xl font-bold text-gray-100 mb-4">AUREYA MASTER INDEX</h1>
+                <p class="text-gray-400 mb-6">Ecosystem Asset Registry | 46MB of Strategic Intelligence</p>
+                
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input
+                        x-model="searchQuery"
+                        @input="performSearch()"
+                        type="text"
+                        placeholder="Search assets, entities, categories..."
+                        class="search-input flex-1 px-4 py-2 rounded"
+                    >
+                    <button
+                        @click="searchQuery = ''; performSearch()"
+                        class="px-4 py-2 bg-red-900 hover:bg-red-800 text-gray-200 rounded transition"
+                    >
+                        Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="bg-gray-900 border-b border-gray-700 py-6">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-7 gap-4">
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">TOTAL FILES</div>
+                        <div class="text-2xl font-bold text-purple-400">39</div>
+                    </div>
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">TOTAL SIZE</div>
+                        <div class="text-2xl font-bold text-purple-400">~47MB</div>
+                    </div>
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">DOCUMENTS</div>
+                        <div class="text-2xl font-bold text-blue-400">18</div>
+                    </div>
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">SPREADSHEETS</div>
+                        <div class="text-2xl font-bold text-green-400">8</div>
+                    </div>
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">DASHBOARDS</div>
+                        <div class="text-2xl font-bold text-purple-400">4</div>
+                    </div>
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">PRESENTATIONS</div>
+                        <div class="text-2xl font-bold text-red-400">4</div>
+                    </div>
+                    <div class="stat-card p-4 rounded">
+                        <div class="text-gray-500 text-sm font-semibold">SOURCE DOCS</div>
+                        <div class="text-2xl font-bold text-cyan-400">64</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="bg-gray-900 border-b border-gray-700 sticky top-24 z-40">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-wrap gap-8">
+                    <button
+                        @click="activeTab = 'assetMap'"
+                        :class="activeTab === 'assetMap' ? 'border-purple-500 text-gray-100' : 'border-gray-600 text-gray-400'"
+                        class="tab-button px-4 py-4 text-sm font-semibold transition"
+                    >
+                        Asset Map
+                    </button>
+                    <button
+                        @click="activeTab = 'revenue'"
+                        :class="activeTab === 'revenue' ? 'border-purple-500 text-gray-100' : 'border-gray-600 text-gray-400'"
+                        class="tab-button px-4 py-4 text-sm font-semibold transition"
+                    >
+                        Revenue Pipeline
+                    </button>
+                    <button
+                        @click="activeTab = 'entities'"
+                        :class="activeTab === 'entities' ? 'border-purple-500 text-gray-100' : 'border-gray-600 text-gray-400'"
+                        class="tab-button px-4 py-4 text-sm font-semibold transition"
+                    >
+                        Entity Map
+                    </button>
+                    <button
+                        @click="activeTab = 'execution'"
+                        :class="activeTab === 'execution' ? 'border-purple-500 text-gray-100' : 'border-gray-600 text-gray-400'"
+                        class="tab-button px-4 py-4 text-sm font-semibold transition"
+                    >
+                        Execution Queue
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            
+            <!-- TAB 1: Asset Map -->
+            <div x-show="activeTab === 'assetMap'" x-transition class="space-y-8">
+                <template x-for="(group, category) in groupedAssets" :key="category">
+                    <div>
+                        <div class="category-header" x-text="category"></div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <template x-for="(asset, idx) in group" :key="idx">
+                                <div x-show="asset.visible" x-transition class="file-card">
+                                    <div class="file-title" x-text="asset.title"></div>
+                                    <div class="file-filename" x-text="asset.filename"></div>
+                                    <div class="file-description" x-text="asset.description"></div>
+                                    <div class="file-meta">
+                                        <div class="flex flex-wrap gap-2 flex-1">
+                                            <span class="action-badge" :class="'action-' + asset.action.toLowerCase()" x-text="asset.action"></span>
+                                            <template x-for="entity in asset.entities" :key="entity">
+                                                <span class="entity-tag" x-text="entity"></span>
+                                            </template>
+                                        </div>
+                                        <span class="size-badge" x-text="asset.size"></span>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- TAB 2: Revenue Pipeline -->
+            <div x-show="activeTab === 'revenue'" x-transition class="space-y-12">
+                
+                <!-- Immediate Revenue -->
+                <div>
+                    <h2 class="text-2xl font-bold text-red-400 mb-4">IMMEDIATE REVENUE (30 Days)</h2>
+                    <div class="space-y-4">
+                        <template x-for="item in revenueData.IMMEDIATE_30_DAYS" :key="item.asset">
+                            <div class="card p-6 rounded border border-gray-700">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-200" x-text="item.revenue_stream"></h3>
+                                        <p class="text-sm text-gray-500" x-text="'Asset: ' + item.asset"></p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-red-400 font-bold text-lg" x-text="item.potential"></p>
+                                        <p class="text-xs text-gray-500" x-text="item.owner"></p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-400" x-text="'Action: ' + item.action"></p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Short-term Revenue -->
+                <div>
+                    <h2 class="text-2xl font-bold text-purple-400 mb-4">SHORT-TERM REVENUE (60-90 Days)</h2>
+                    <div class="space-y-4">
+                        <template x-for="item in revenueData.SHORT_TERM_60_90" :key="item.asset">
+                            <div class="card p-6 rounded border border-gray-700">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-200" x-text="item.revenue_stream"></h3>
+                                        <p class="text-sm text-gray-500" x-text="'Asset: ' + item.asset"></p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-purple-400 font-bold text-lg" x-text="item.potential"></p>
+                                        <p class="text-xs text-gray-500" x-text="item.owner"></p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-400" x-text="'Action: ' + item.action"></p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Revenue -->
+                <div>
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4">INFRASTRUCTURE REVENUE (6-12 Months)</h2>
+                    <div class="space-y-4">
+                        <template x-for="item in revenueData.INFRASTRUCTURE_6_12M" :key="item.asset">
+                            <div class="card p-6 rounded border border-gray-700">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-200" x-text="item.revenue_stream"></h3>
+                                        <p class="text-sm text-gray-500" x-text="'Asset: ' + item.asset"></p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-blue-400 font-bold text-lg" x-text="item.potential"></p>
+                                        <p class="text-xs text-gray-500" x-text="item.owner"></p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-400" x-text="'Action: ' + item.action"></p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: Entity Map -->
+            <div x-show="activeTab === 'entities'" x-transition class="space-y-8">
+                <template x-for="(description, entity) in entityData" :key="entity">
+                    <div class="card p-6 rounded border border-gray-700">
+                        <h2 class="text-2xl font-bold text-purple-400 mb-2" x-text="entity"></h2>
+                        <p class="text-gray-400 mb-4" x-text="description"></p>
+                        <div class="flex flex-wrap gap-2">
+                            <template x-for="asset in getEntityAssets(entity)" :key="asset">
+                                <span class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm" x-text="asset"></span>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- TAB 4: Execution Queue -->
+            <div x-show="activeTab === 'execution'" x-transition class="space-y-6">
+                <div class="bg-gray-900 p-6 rounded border border-gray-700 mb-8">
+                    <h2 class="text-xl font-bold text-gray-200 mb-2">10-ITEM EXECUTION PRIORITY</h2>
+                    <p class="text-gray-400">Ranked by immediate revenue impact and strategic leverage</p>
+                </div>
+                
+                <template x-for="item in executionQueue" :key="item.priority">
+                    <div class="priority-box">
+                        <div class="flex items-start gap-4">
+                            <span class="priority-number" x-text="item.priority"></span>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-gray-200 mb-2">
+                                    <span class="inline-block bg-red-900 text-red-200 px-3 py-1 rounded text-xs font-bold mr-3" x-text="item.action"></span>
+                                    <span x-text="item.item"></span>
+                                </h3>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm mt-3">
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase tracking-wide">Owner</p>
+                                        <p class="text-gray-300 font-semibold" x-text="item.owner"></p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase tracking-wide">Timeline</p>
+                                        <p class="text-gray-300 font-semibold" x-text="item.timeline"></p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase tracking-wide">Revenue Impact</p>
+                                        <p class="revenue-highlight" x-text="item.revenue"></p>
+                                    </div>
+                                    <div class="text-right">
+                                        <button
+                                            @click="markComplete(item.priority)"
+                                            :class="completedItems.includes(item.priority) ? 'bg-green-900' : 'bg-gray-700 hover:bg-gray-600'"
+                                            class="px-4 py-2 rounded text-xs font-semibold transition"
+                                        >
+                                            <span x-show="!completedItems.includes(item.priority)">Mark Done</span>
+                                            <span x-show="completedItems.includes(item.priority)" class="text-green-400">Completed</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-900 border-t border-gray-700 py-6 mt-12">
+            <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+                <p>AUREYA MASTER INDEX | Comprehensive Ecosystem Asset Registry</p>
+                <p>Last Updated: 2026-03-05 | Total Assets: 39 | System Status: LIVE</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function masterIndex() {
+            return {
+                activeTab: 'assetMap',
+                searchQuery: '',
+                completedItems: [],
+                
+                fileMetadata: {"AUREYA_TCCC_PLANETARY_ARCHITECTURE.docx": {"category": "ARCHITECTURE DOCUMENTS", "title": "Aureya TCCC Planetary Architecture", "description": "Planetary AIDevSecOps Architecture | 15 sections, 406 paragraphs | The constitutional blueprint for Aureya's Tower Control", "action": "DEPLOY", "size": "58K", "entities": ["Aureya"]}, "AINEFF_TOWER_CONTROL_COMMAND_CENTER.docx": {"category": "ARCHITECTURE DOCUMENTS", "title": "Tower Control Command Center", "description": "Tower Control Architecture | 13 sections | 7-engine coordination layer design", "action": "BUILD", "size": "52K", "entities": ["AINEFF"]}, "AINEFF_PLATFORM_GENERATION_ARCHITECTURE.docx": {"category": "ARCHITECTURE DOCUMENTS", "title": "Platform Generation Architecture", "description": "Platform Generation Architecture | 12 sections | 7.2B+ platform surfaces mapping", "action": "BUILD", "size": "56K", "entities": ["AINEFF", "AgentCoders"]}, "AINEFF_SOVEREIGN_DEPLOYMENT_ARCHITECTURE.docx": {"category": "ARCHITECTURE DOCUMENTS", "title": "Sovereign Deployment Architecture", "description": "Sovereign Deployment Architecture | Entity hierarchy and deployment specs", "action": "DEPLOY", "size": "62K", "entities": ["AINEFF"]}, "PRODUCT_MARKET_FIT_HANDBOOK_V3.docx": {"category": "STRATEGY & SALES", "title": "Product Market Fit Handbook V3", "description": "Product Market Fit Handbook | Sales weapon for client engagements | Latest version with enhanced positioning", "action": "SELL NOW", "size": "67K", "entities": ["Levelupmax"]}, "FULL_STRATEGIC_CONSOLIDATION_V5.docx": {"category": "STRATEGY & SALES", "title": "Strategic Consolidation V5", "description": "Strategic Consolidation | Complete ecosystem strategy | Final consolidated version", "action": "REFERENCE", "size": "49K", "entities": ["Aureya", "Frankmax"]}, "AINEFF_GLOBAL_ENTROPY_SOVEREIGN_MATRIX.xlsx": {"category": "DATA MATRICES", "title": "Global Entropy Sovereign Matrix", "description": "830KB | 21 sheets, 10,119 codes, 16 classification systems | The monetizable intelligence layer", "action": "SELL NOW", "size": "830K", "entities": ["AINEFF"]}, "AINEFF_PRECISION_SOVEREIGN_MATRIX.xlsx": {"category": "DATA MATRICES", "title": "Precision Sovereign Matrix", "description": "Precision Matrix | Premium tier detailed entropy analysis | High-value data product", "action": "SELL NOW", "size": "94K", "entities": ["AINEFF"]}, "AINEFF_NAICS_SOVEREIGN_MATRIX.xlsx": {"category": "DATA MATRICES", "title": "NAICS Sovereign Matrix", "description": "NAICS-specific matrix | North American industry classification entropy analysis", "action": "SELL NOW", "size": "60K", "entities": ["AINEFF"]}, "EXECUTION_BLUEPRINT.xlsx": {"category": "DATA MATRICES", "title": "Execution Blueprint", "description": "Execution timeline and milestones | 12-month operational roadmap", "action": "REFERENCE", "size": "31K", "entities": ["Frankmax"]}, "COMPOUNDING_LEVERAGE_MODEL.xlsx": {"category": "DATA MATRICES", "title": "Compounding Leverage Model", "description": "Financial compounding projections | Revenue acceleration modeling", "action": "REFERENCE", "size": "30K", "entities": ["Aureya"]}, "ZERO_TO_REVENUE_30_DAYS.xlsx": {"category": "DATA MATRICES", "title": "Zero to Revenue - 30 Days", "description": "30-day revenue capture plan | Immediate cash flow pathway", "action": "SELL NOW", "size": "18K", "entities": ["Frankmax"]}, "aureya_ecosystem_financial_dashboard.xlsx": {"category": "DATA MATRICES", "title": "Aureya Ecosystem Financial Dashboard", "description": "Financial tracking and KPI dashboard | Real-time ecosystem metrics", "action": "REFERENCE", "size": "8.3K", "entities": ["Aureya"]}, "AINEFF_TOWER_CONTROL.html": {"category": "INTERACTIVE DASHBOARDS", "title": "AINEFF Tower Control", "description": "1.2MB | 7 engine tabs, 9,558 searchable codes | Live operational dashboard", "action": "DEPLOY", "size": "1.2M", "entities": ["AINEFF", "AgentCoders"]}, "FRANKMAX_DEMO_EXPERIENCE.html": {"category": "INTERACTIVE DASHBOARDS", "title": "Frankmax Demo Experience", "description": "Frankmax client demo | Interactive product showcase", "action": "SELL NOW", "size": "69K", "entities": ["Frankmax"]}, "LEVELUPMAX_SITE.html": {"category": "INTERACTIVE DASHBOARDS", "title": "Levelupmax Site", "description": "Levelupmax prototype site | Lead generation landing page", "action": "DEPLOY", "size": "53K", "entities": ["Levelupmax"]}, "ANDREWFRANKLINLEO_SITE.html": {"category": "INTERACTIVE DASHBOARDS", "title": "Andrew Franklin Leo Site", "description": "Personal brand site | Forbes-style positioning and thought leadership", "action": "DEPLOY", "size": "31K", "entities": ["Andrew Franklin Leo"]}, "COMPOUNDING_INFRASTRUCTURE_STRATEGY.pptx": {"category": "PRESENTATIONS", "title": "Compounding Infrastructure Strategy", "description": "Infrastructure strategy deck | Platform layering and scaling thesis", "action": "REFERENCE", "size": "360K", "entities": ["Aureya"]}, "EXECUTION_BLUEPRINT.pptx": {"category": "PRESENTATIONS", "title": "Execution Blueprint", "description": "Execution roadmap deck | 12-month tactical plan visualization", "action": "REFERENCE", "size": "75K", "entities": ["Frankmax"]}, "DOMAIN_STRATEGY.pptx": {"category": "PRESENTATIONS", "title": "Domain Strategy", "description": "Domain portfolio strategy | Vertical market prioritization", "action": "REFERENCE", "size": "61K", "entities": ["Aureya"]}, "NEXT_30_DAYS.pptx": {"category": "PRESENTATIONS", "title": "Next 30 Days", "description": "Immediate action plan | Weekly execution blocks and milestones", "action": "REFERENCE", "size": "51K", "entities": ["Aureya"]}, "MASTER_ENTROPY_MAPPING_PROMPT.md": {"category": "REFERENCE FILES", "title": "Master Entropy Mapping Prompt", "description": "The prompt that drives all entropy mapping | Core intelligence synthesis methodology", "action": "REFERENCE", "size": "11K", "entities": ["Aureya"]}, "PRODUCT_SERVICE_INVENTORY.md": {"category": "REFERENCE FILES", "title": "Product Service Inventory", "description": "Complete product/service catalog | All offerings across ecosystem", "action": "REFERENCE", "size": "44K", "entities": ["Aureya"]}, "CLAUDE.md": {"category": "REFERENCE FILES", "title": "Project Instructions", "description": "Project instructions | Strategic reconstruction and execution doctrine", "action": "REFERENCE", "size": "5.1K", "entities": ["Aureya"]}, "HANDBOOK_V2_COMPANION_GUIDE.md": {"category": "REFERENCE FILES", "title": "Handbook V2 Companion Guide", "description": "Companion guide for PMF Handbook V2 | Enhanced sales methodology", "action": "REFERENCE", "size": "15K", "entities": ["Levelupmax"]}, "EXTRACTION_FINDINGS.md": {"category": "REFERENCE FILES", "title": "Extraction Findings", "description": "Findings from source document analysis | Key insights and patterns", "action": "REFERENCE", "size": "13K", "entities": ["Aureya"]}, "EXECUTIVE_SUMMARY_PRODUCTS.md": {"category": "REFERENCE FILES", "title": "Executive Summary - Products", "description": "Executive summary of product offerings | Board-ready overview", "action": "REFERENCE", "size": "12K", "entities": ["Aureya"]}, "README_INVENTORY.md": {"category": "REFERENCE FILES", "title": "README Inventory", "description": "Inventory documentation | Asset catalog guide", "action": "REFERENCE", "size": "12K", "entities": ["Aureya"]}, "AUDIT_INDEX.md": {"category": "REFERENCE FILES", "title": "Audit Index", "description": "Audit of ecosystem assets | Completeness verification", "action": "REFERENCE", "size": "8.3K", "entities": ["Aureya"]}, "HANDBOOK_AUDIT_SUMMARY.md": {"category": "REFERENCE FILES", "title": "Handbook Audit Summary", "description": "Audit summary for handbook materials | Quality assurance report", "action": "REFERENCE", "size": "6.5K", "entities": ["Aureya"]}, "REMEDIATION_CHECKLIST.md": {"category": "REFERENCE FILES", "title": "Remediation Checklist", "description": "Remediation items and action items | Continuous improvement tracker", "action": "REFERENCE", "size": "8.9K", "entities": ["Aureya"]}, "MASTER_EXECUTION_PROMPT.md": {"category": "REFERENCE FILES", "title": "Master Execution Prompt", "description": "Master execution prompt | Operational execution doctrine", "action": "REFERENCE", "size": "11K", "entities": ["Aureya"]}, "PRODUCT_MARKET_FIT_HANDBOOK_V2.docx": {"category": "STRATEGY & SALES", "title": "Product Market Fit Handbook V2", "description": "Product Market Fit Handbook V2 | Previous version with core sales frameworks", "action": "REFERENCE", "size": "45K", "entities": ["Levelupmax"]}, "PRODUCT_MARKET_FIT_HANDBOOK.docx": {"category": "STRATEGY & SALES", "title": "Product Market Fit Handbook", "description": "Product Market Fit Handbook | Original version with foundational frameworks", "action": "REFERENCE", "size": "57K", "entities": ["Levelupmax"]}, "FULL_STRATEGIC_CONSOLIDATION_V4.docx": {"category": "STRATEGY & SALES", "title": "Strategic Consolidation V4", "description": "Strategic Consolidation V4 | Intermediate consolidated strategy version", "action": "REFERENCE", "size": "48K", "entities": ["Aureya"]}, "FULL_STRATEGIC_CONSOLIDATION_V3.docx": {"category": "STRATEGY & SALES", "title": "Strategic Consolidation V3", "description": "Strategic Consolidation V3 | Evolving ecosystem strategy", "action": "REFERENCE", "size": "47K", "entities": ["Aureya"]}, "FULL_STRATEGIC_CONSOLIDATION_V2.docx": {"category": "STRATEGY & SALES", "title": "Strategic Consolidation V2", "description": "Strategic Consolidation V2 | Early strategic framework", "action": "REFERENCE", "size": "24K", "entities": ["Aureya"]}, "FULL_STRATEGIC_CONSOLIDATION.docx": {"category": "STRATEGY & SALES", "title": "Strategic Consolidation", "description": "Strategic Consolidation | Original strategic vision document", "action": "REFERENCE", "size": "11K", "entities": ["Aureya"]}},
+                
+                revenueData: {"IMMEDIATE_30_DAYS": [{"asset": "AINEFF_GLOBAL_ENTROPY_SOVEREIGN_MATRIX.xlsx", "revenue_stream": "Sovereign Matrix Data License", "potential": "$2K-$5K", "owner": "AINEFF", "action": "Package as purchasable product"}, {"asset": "AINEFF_PRECISION_SOVEREIGN_MATRIX.xlsx", "revenue_stream": "Premium Intelligence", "potential": "$5K-$15K", "owner": "AINEFF", "action": "Premium tier data access"}, {"asset": "PRODUCT_MARKET_FIT_HANDBOOK_V3.docx", "revenue_stream": "Sales Enablement", "potential": "Enables $10K+ engagements", "owner": "Levelupmax", "action": "Send to 5 next prospect calls"}], "SHORT_TERM_60_90": [{"asset": "AINEFF_TOWER_CONTROL.html", "revenue_stream": "SaaS Demo/Dashboard", "potential": "$500-$2K/month", "owner": "AINEFF", "action": "Live dashboard deployment"}, {"asset": "FRANKMAX_DEMO_EXPERIENCE.html", "revenue_stream": "Client Demo", "potential": "Conversion multiplier", "owner": "Frankmax", "action": "Share with qualified leads"}, {"asset": "Presentation Decks", "revenue_stream": "Investor/Partner Conversion", "potential": "$25K+ per partnership", "owner": "Andrew Franklin Leo", "action": "Use in investor conversations"}], "INFRASTRUCTURE_6_12M": [{"asset": "AINEFF_PLATFORM_GENERATION_ARCHITECTURE.docx", "revenue_stream": "AgentCoders Build Specs", "potential": "$100K+ platform builds", "owner": "AgentCoders", "action": "Convert to sprint backlog"}, {"asset": "AUREYA_TCCC_PLANETARY_ARCHITECTURE.docx", "revenue_stream": "Arisea Deployment License", "potential": "$50K-$200K licensing", "owner": "Aureya", "action": "Build deployment kit"}, {"asset": "Source Intelligence (docs/)", "revenue_stream": "Vertical AINE Templates", "potential": "$30K-$100K per vertical", "owner": "AINEF", "action": "Extract industry-specific templates"}]},
+                
+                entityData: {"AINEFF": "Entropy Intelligence Platform - Global data matrix and sovereign classification system", "Frankmax": "Commercial acceleration and sales execution entity", "Levelupmax": "Client engagement and outcome optimization", "AgentCoders": "Platform and agent development", "Andrew Franklin Leo": "Strategic positioning and thought leadership", "Aureya": "Master coordination and infrastructure", "AINEF": "Vertical specialization and extraction", "AINEG": "Community deployment and replication"},
+                
+                executionQueue: [{"priority": 1, "action": "SELL", "item": "Package Sovereign Matrix as purchasable product", "owner": "Frankmax", "timeline": "This week", "revenue": "$2K-$5K"}, {"priority": 2, "action": "SELL", "item": "Send PMF Handbook to next 5 prospect calls", "owner": "Levelupmax", "timeline": "This week", "revenue": "Enables $10K+ engagements"}, {"priority": 3, "action": "DEPLOY", "item": "Ship website prototypes to live domains", "owner": "All entities", "timeline": "Next 2 weeks", "revenue": "Lead generation multiplier"}, {"priority": 4, "action": "DEPLOY", "item": "Tower Control as daily operating dashboard", "owner": "All teams", "timeline": "Next 2 weeks", "revenue": "Operational efficiency"}, {"priority": 5, "action": "BUILD", "item": "Arisea Deployment Kit from TCCC + Tower Control", "owner": "Aureya", "timeline": "Month 1", "revenue": "$50K-$200K"}, {"priority": 6, "action": "BUILD", "item": "API endpoint for Sovereign Matrix data access", "owner": "Frankmax", "timeline": "Month 1", "revenue": "$5K-$15K/month"}, {"priority": 7, "action": "BUILD", "item": "Connect Tower Control to live data feeds", "owner": "AgentCoders", "timeline": "Month 1-2", "revenue": "Product differentiation"}, {"priority": 8, "action": "PITCH", "item": "Use decks for investor/partner conversations", "owner": "Andrew Franklin Leo", "timeline": "Ongoing", "revenue": "Partnership/funding"}, {"priority": 9, "action": "EXTRACT", "item": "Pull vertical-specific AINE templates from 64 source docs", "owner": "AINEF", "timeline": "Month 2-3", "revenue": "$30K-$100K per vertical"}, {"priority": 10, "action": "SCALE", "item": "Replicate Tamil Arisea playbook for 5 more communities", "owner": "AINEG", "timeline": "Month 3-6", "revenue": "$10K-$50K per community"}],
+                
+                get groupedAssets() {
+                    let grouped = {};
+                    
+                    Object.entries(this.fileMetadata).forEach(([filename, meta]) => {
+                        const category = meta.category;
+                        if (!grouped[category]) {
+                            grouped[category] = [];
+                        }
+                        
+                        const asset = {
+                            filename: filename,
+                            title: meta.title,
+                            description: meta.description,
+                            action: meta.action,
+                            size: meta.size,
+                            entities: meta.entities,
+                            visible: this.matchesSearch(filename + ' ' + meta.title + ' ' + meta.description + ' ' + meta.category)
+                        };
+                        
+                        grouped[category].push(asset);
+                    });
+                    
+                    // Add docs.zip
+                    if (!grouped['REFERENCE FILES']) {
+                        grouped['REFERENCE FILES'] = [];
+                    }
+                    grouped['REFERENCE FILES'].push({
+                        filename: 'docs.zip',
+                        title: 'Source Intelligence Archive',
+                        description: '64 markdown files | 21MB total | 700,000+ lines of strategic conversations | Topics: AI taxonomy, industry mapping, entropy analysis, financial engineering, diaspora networks, household enterprise model, trade secrets, risk taxonomy, talent deployment, asset-backed trading, civilization middleware, education chokepoints',
+                        action: 'REFERENCE',
+                        size: '4.6M',
+                        entities: ['Aureya'],
+                        visible: this.matchesSearch('docs source intelligence archive')
+                    });
+                    
+                    return grouped;
+                },
+                
+                performSearch() {
+                    // Force reactivity by accessing groupedAssets
+                    void this.groupedAssets;
+                },
+                
+                matchesSearch(text) {
+                    if (!this.searchQuery.trim()) return true;
+                    return text.toLowerCase().includes(this.searchQuery.toLowerCase());
+                },
+                
+                getEntityAssets(entity) {
+                    let assets = [];
+                    Object.entries(this.fileMetadata).forEach(([filename, meta]) => {
+                        if (meta.entities.includes(entity)) {
+                            assets.push(filename);
+                        }
+                    });
+                    return assets;
+                },
+                
+                markComplete(priority) {
+                    if (!this.completedItems.includes(priority)) {
+                        this.completedItems.push(priority);
+                    } else {
+                        this.completedItems = this.completedItems.filter(p => p !== priority);
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>

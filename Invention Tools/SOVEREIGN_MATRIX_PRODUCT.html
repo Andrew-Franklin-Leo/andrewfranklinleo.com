@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Entropy Sovereign Matrix — Aureya Intelligence Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #0A0A1A;
+            color: #FFFFFF;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .serif-heading {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .card-base {
+            background-color: #1A1A2E;
+            border: 1px solid rgba(229, 69, 96, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-base:hover {
+            border-color: rgba(229, 69, 96, 0.3);
+            box-shadow: 0 8px 32px rgba(233, 69, 96, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .cta-primary {
+            background-color: #E94560;
+            color: #FFFFFF;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-primary:hover {
+            background-color: #D63A50;
+            box-shadow: 0 8px 24px rgba(233, 69, 96, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .accent-purple {
+            color: #533483;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 16px;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #E94560;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(83, 52, 131, 0.05) 100%);
+            border-radius: 16px;
+            padding: 2px;
+        }
+        
+        .hero-gradient-inner {
+            background-color: #0A0A1A;
+            border-radius: 14px;
+            padding: 60px 40px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Georgia', serif;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            font-size: 14px;
+            color: #AAAAAA;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        
+        .dimension-number {
+            background-color: rgba(233, 69, 96, 0.1);
+            color: #E94560;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-tier {
+            background-color: #1A1A2E;
+            border: 1px solid rgba(229, 69, 96, 0.1);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-tier.featured {
+            border-color: #E94560;
+            box-shadow: 0 16px 48px rgba(233, 69, 96, 0.15);
+            transform: scale(1.02);
+        }
+        
+        .pricing-tier.featured .badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background-color: #E94560;
+            color: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-tier:hover {
+            border-color: rgba(229, 69, 96, 0.3);
+        }
+        
+        .pricing-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #E94560;
+            font-family: 'Courier New', monospace;
+            margin: 16px 0;
+        }
+        
+        .feature-check {
+            color: #E94560;
+            margin-right: 8px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            font-size: 13px;
+            color: #CCCCCC;
+            display: flex;
+            align-items: center;
+        }
+        
+        .component-badge {
+            display: inline-block;
+            background-color: rgba(83, 52, 131, 0.2);
+            color: #B8A8D8;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .code-count {
+            font-family: 'Courier New', monospace;
+            color: #E94560;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div x-data="{ scrolled: false, activeTab: 'hero' }" @scroll.window="scrolled = window.scrollY > 50">
+        <!-- Navigation Bar -->
+        <nav class="fixed top-0 w-full z-50 transition-all duration-300" :class="scrolled ? 'bg-black/80 backdrop-blur-md border-b border-gray-800' : 'bg-transparent'">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="serif-heading text-lg">SOVEREIGN MATRIX</div>
+                <div class="flex gap-4 items-center">
+                    <a href="#pricing" class="text-sm text-gray-400 hover:text-white transition">Pricing</a>
+                    <a href="mailto:andrew.palupillai@frankmax.digital?subject=Sovereign%20Matrix%20Access%20Request" class="cta-primary">Request Access</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 px-6 relative overflow-hidden" id="hero">
+            <div class="max-w-6xl mx-auto">
+                <!-- Background gradient -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/20 via-transparent to-transparent pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <div class="text-center fade-in visible">
+                        <p class="section-subtitle">AUREYA GLOBAL INTELLIGENCE INFRASTRUCTURE</p>
+                        <h1 class="serif-heading text-5xl md:text-6xl mb-6 leading-tight">
+                            The Global Entropy <span class="accent-purple">Sovereign Matrix</span>
+                        </h1>
+                        <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+                            10,119 industry codes. 16 classification systems. 8 entropy dimensions. Every chokepoint, bottleneck, and pain point mapped across the global economy.
+                        </p>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="hero-gradient mb-12 fade-in visible" style="animation-delay: 0.2s">
+                        <div class="hero-gradient-inner">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="stat-item">
+                                    <div class="stat-number">10,119</div>
+                                    <div class="stat-label">Industry Codes</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">16</div>
+                                    <div class="stat-label">Classification Systems</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">21</div>
+                                    <div class="stat-label">Master Sheets</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">250</div>
+                                    <div class="stat-label">Countries Covered</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="text-center fade-in visible" style="animation-delay: 0.4s">
+                        <a href="mailto:andrew.palupillai@frankmax.digital?subject=Sovereign%20Matrix%20Access%20Request" class="cta-primary text-base px-8 py-4">
+                            Request Access
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Inside Section -->
+        <section class="py-20 px-6 border-t border-gray-800" id="whats-inside">
+            <div class="max-w-6xl mx-auto">
+                <p class="section-subtitle text-center">PRODUCT COMPONENTS</p>
+                <h2 class="section-title text-center mb-16">What's Inside</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Component 1 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')">
+                        <div class="component-badge">US STANDARD</div>
+                        <h3 class="text-xl font-bold mb-2">NAICS 6-Digit Master</h3>
+                        <p class="text-gray-400 text-sm mb-4">Complete US industry classification with entropy analysis</p>
+                        <p class="text-lg"><span class="code-count">1,172</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 2 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.1s">
+                        <div class="component-badge">LEGACY SYSTEM</div>
+                        <h3 class="text-xl font-bold mb-2">SIC 4-Digit Complete</h3>
+                        <p class="text-gray-400 text-sm mb-4">Legacy system mapping with modern entropy overlay</p>
+                        <p class="text-lg"><span class="code-count">986</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 3 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.2s">
+                        <div class="component-badge">UNITED NATIONS</div>
+                        <h3 class="text-xl font-bold mb-2">ISIC Rev.4</h3>
+                        <p class="text-gray-400 text-sm mb-4">United Nations international standard classification</p>
+                        <p class="text-lg"><span class="code-count">463</span> <span class="text-gray-500">classes</span></p>
+                    </div>
+
+                    <!-- Component 4 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.3s">
+                        <div class="component-badge">EUROPEAN UNION</div>
+                        <h3 class="text-xl font-bold mb-2">NACE Rev.2</h3>
+                        <p class="text-gray-400 text-sm mb-4">European Union industry classification system</p>
+                        <p class="text-lg"><span class="code-count">592</span> <span class="text-gray-500">classes</span></p>
+                    </div>
+
+                    <!-- Component 5 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.4s">
+                        <div class="component-badge">UNITED KINGDOM</div>
+                        <h3 class="text-xl font-bold mb-2">UK SIC 2007</h3>
+                        <p class="text-gray-400 text-sm mb-4">United Kingdom industry classification standard</p>
+                        <p class="text-lg"><span class="code-count">806</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 6 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.5s">
+                        <div class="component-badge">ASIA-PACIFIC</div>
+                        <h3 class="text-xl font-bold mb-2">Regional Bundle</h3>
+                        <p class="text-gray-400 text-sm mb-4">SSIC, NIC, JSIC, ANZSIC combined coverage</p>
+                        <p class="text-lg"><span class="code-count">2,212</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 7 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.6s">
+                        <div class="component-badge">TRADE COMMODITY</div>
+                        <h3 class="text-xl font-bold mb-2">HS 4-Digit Trade</h3>
+                        <p class="text-gray-400 text-sm mb-4">Global trade commodity classification system</p>
+                        <p class="text-lg"><span class="code-count">1,251</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 8 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.7s">
+                        <div class="component-badge">WORKFORCE</div>
+                        <h3 class="text-xl font-bold mb-2">SOC + CIP Bundle</h3>
+                        <p class="text-gray-400 text-sm mb-4">Occupations and education program classification</p>
+                        <p class="text-lg"><span class="code-count">844</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 9 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.8s">
+                        <div class="component-badge">FINANCIAL</div>
+                        <h3 class="text-xl font-bold mb-2">GICS + NAIC Bundle</h3>
+                        <p class="text-gray-400 text-sm mb-4">Financial sector and insurance classification</p>
+                        <p class="text-lg"><span class="code-count">658</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+
+                    <!-- Component 10 -->
+                    <div class="card-base p-6 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.9s">
+                        <div class="component-badge">GRANULAR DETAIL</div>
+                        <h3 class="text-xl font-bold mb-2">Extended NAICS 8-Digit</h3>
+                        <p class="text-gray-400 text-sm mb-4">Granular sub-industry precision and detail</p>
+                        <p class="text-lg"><span class="code-count">550</span> <span class="text-gray-500">codes</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8 Entropy Dimensions Section -->
+        <section class="py-20 px-6 border-t border-gray-800" id="dimensions">
+            <div class="max-w-6xl mx-auto">
+                <p class="section-subtitle text-center">ANALYTICAL FRAMEWORK</p>
+                <h2 class="section-title text-center mb-16">8 Entropy Dimensions</h2>
+                
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-16">Each industry code is enriched with multi-dimensional entropy analysis, revealing systemic vulnerabilities, competitive dynamics, and strategic opportunities across global markets.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Dimension 1 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')">
+                        <div class="dimension-number">1</div>
+                        <h3 class="text-xl font-bold mb-3">Entropy Vector</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Direction and magnitude of systemic decay within industry segments. Identifies acceleration, deceleration, or stabilization patterns in market disruption.</p>
+                    </div>
+
+                    <!-- Dimension 2 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.1s">
+                        <div class="dimension-number">2</div>
+                        <h3 class="text-xl font-bold mb-3">Analogous Systemic Force</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Cross-industry pattern matching reveals how disruption in one sector cascades to structurally similar industries across regions and domains.</p>
+                    </div>
+
+                    <!-- Dimension 3 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.2s">
+                        <div class="dimension-number">3</div>
+                        <h3 class="text-xl font-bold mb-3">Chokepoint</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Single points of failure in value chains. Identifies dependencies and leverage points where systemic failure becomes probable under stress.</p>
+                    </div>
+
+                    <!-- Dimension 4 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.3s">
+                        <div class="dimension-number">4</div>
+                        <h3 class="text-xl font-bold mb-3">Bottleneck</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Throughput constraints limiting growth and resource allocation. Maps structural friction points that prevent market scaling and efficiency gains.</p>
+                    </div>
+
+                    <!-- Dimension 5 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.4s">
+                        <div class="dimension-number">5</div>
+                        <h3 class="text-xl font-bold mb-3">Pain Point ($)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Direct cost impact and revenue leakage quantified. Economic weight of each systemic inefficiency, translating entropy into addressable market opportunity.</p>
+                    </div>
+
+                    <!-- Dimension 6 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.5s">
+                        <div class="dimension-number">6</div>
+                        <h3 class="text-xl font-bold mb-3">Challenge</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Strategic obstacles requiring coordinated response. Identifies multi-stakeholder coordination problems that prevent traditional solutions from operating.</p>
+                    </div>
+
+                    <!-- Dimension 7 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.6s">
+                        <div class="dimension-number">7</div>
+                        <h3 class="text-xl font-bold mb-3">Obstacle</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Operational barriers to execution. Maps regulatory, institutional, and technical barriers that prevent market actors from self-correcting inefficiencies.</p>
+                    </div>
+
+                    <!-- Dimension 8 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.7s">
+                        <div class="dimension-number">8</div>
+                        <h3 class="text-xl font-bold mb-3">Threat/Weakness</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Existential risks and structural vulnerabilities. Identifies sectors vulnerable to technological disruption, competitive substitution, or systemic collapse.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="py-20 px-6 border-t border-gray-800" id="usecases">
+            <div class="max-w-6xl mx-auto">
+                <p class="section-subtitle text-center">APPLICATIONS</p>
+                <h2 class="section-title text-center mb-16">Who Uses This</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Use Case 1 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')">
+                        <h3 class="text-xl font-bold mb-2">Enterprise Strategy Teams</h3>
+                        <p class="text-gray-400 text-sm mb-4">Map competitive landscape across entropy dimensions. Identify emerging threats and market opportunities with institutional-grade data.</p>
+                        <p class="text-xs text-gray-500">Strategic Planning | Competitive Intelligence | Risk Assessment</p>
+                    </div>
+
+                    <!-- Use Case 2 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.1s">
+                        <h3 class="text-xl font-bold mb-2">Consulting Firms</h3>
+                        <p class="text-gray-400 text-sm mb-4">Power client deliverables with institutional-grade classification data. Accelerate engagement delivery and increase solution depth.</p>
+                        <p class="text-xs text-gray-500">Client Engagements | Industry Analysis | Digital Intelligence</p>
+                    </div>
+
+                    <!-- Use Case 3 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.2s">
+                        <h3 class="text-xl font-bold mb-2">Investment Analysts</h3>
+                        <p class="text-gray-400 text-sm mb-4">Identify sectors with highest entropy—the highest disruption opportunity. Model structural volatility and inflection points.</p>
+                        <p class="text-xs text-gray-500">Equity Research | Disruption Forecasting | Market Intelligence</p>
+                    </div>
+
+                    <!-- Use Case 4 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.3s">
+                        <h3 class="text-xl font-bold mb-2">Government Policy</h3>
+                        <p class="text-gray-400 text-sm mb-4">Cross-reference international classification systems for trade policy, regulation, and economic development planning.</p>
+                        <p class="text-xs text-gray-500">Trade Policy | Regulation | Economic Planning</p>
+                    </div>
+
+                    <!-- Use Case 5 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.4s">
+                        <h3 class="text-xl font-bold mb-2">AI & ML Companies</h3>
+                        <p class="text-gray-400 text-sm mb-4">Train models on structured industry taxonomy with entropy metadata. Build domain-specific intelligence layers with governance and traceability.</p>
+                        <p class="text-xs text-gray-500">Model Training | Knowledge Graphs | AI Infrastructure</p>
+                    </div>
+
+                    <!-- Use Case 6 -->
+                    <div class="card-base p-8 fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.5s">
+                        <h3 class="text-xl font-bold mb-2">Startups & Growth Teams</h3>
+                        <p class="text-gray-400 text-sm mb-4">Find the exact pain points where your solution fits across global markets. Validate market-fit across multiple geographies and industry segments.</p>
+                        <p class="text-xs text-gray-500">Market Validation | Product Fit | Go-to-Market Strategy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="py-20 px-6 border-t border-gray-800" id="pricing">
+            <div class="max-w-6xl mx-auto">
+                <p class="section-subtitle text-center">INVESTMENT</p>
+                <h2 class="section-title text-center mb-4">Pricing & Access</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16">Three tiers designed for different organizational scale. All tiers include email support and quarterly updates.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Tier 1: Explorer -->
+                    <div class="pricing-tier fade-in" x-intersect="$el.classList.add('visible')">
+                        <h3 class="text-2xl font-bold mb-2">Explorer</h3>
+                        <p class="text-gray-500 text-sm mb-6">Perfect for evaluation and initial assessment</p>
+                        
+                        <div class="pricing-amount">$2,500</div>
+                        
+                        <ul class="feature-list">
+                            <li><span class="feature-check">✓</span>Single classification system access</li>
+                            <li><span class="feature-check">✓</span>PDF report deliverable</li>
+                            <li><span class="feature-check">✓</span>30-day email support</li>
+                            <li><span class="feature-check">✓</span>One-time access license</li>
+                        </ul>
+                        
+                        <a href="mailto:andrew.palupillai@frankmax.digital?subject=Sovereign%20Matrix%20Access%20Request%20-%20Explorer%20Tier" class="cta-primary block text-center">Request Access</a>
+                    </div>
+
+                    <!-- Tier 2: Professional (Featured) -->
+                    <div class="pricing-tier featured fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.1s">
+                        <div class="badge">MOST POPULAR</div>
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <p class="text-gray-500 text-sm mb-6">Standard tier for most organizations</p>
+                        
+                        <div class="pricing-amount">$7,500</div>
+                        
+                        <ul class="feature-list">
+                            <li><span class="feature-check">✓</span>Full 16-system access</li>
+                            <li><span class="feature-check">✓</span>Excel workbook export</li>
+                            <li><span class="feature-check">✓</span>Quarterly updates (annual)</li>
+                            <li><span class="feature-check">✓</span>90-day email support</li>
+                            <li><span class="feature-check">✓</span>Institutional license</li>
+                        </ul>
+                        
+                        <a href="mailto:andrew.palupillai@frankmax.digital?subject=Sovereign%20Matrix%20Access%20Request%20-%20Professional%20Tier" class="cta-primary block text-center">Request Access</a>
+                    </div>
+
+                    <!-- Tier 3: Enterprise -->
+                    <div class="pricing-tier fade-in" x-intersect="$el.classList.add('visible')" style="animation-delay: 0.2s">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-gray-500 text-sm mb-6">Custom deployment and integration</p>
+                        
+                        <div class="pricing-amount">$25,000+</div>
+                        
+                        <ul class="feature-list">
+                            <li><span class="feature-check">✓</span>Full access + API endpoint</li>
+                            <li><span class="feature-check">✓</span>Custom vertical reports</li>
+                            <li><span class="feature-check">✓</span>Dedicated analyst support</li>
+                            <li><span class="feature-check">✓</span>Aureya ecosystem integration</li>
+                            <li><span class="feature-check">✓</span>Unlimited user seats</li>
+                            <li><span class="feature-check">✓</span>Ongoing consultation</li>
+                        </ul>
+                        
+                        <a href="mailto:andrew.palupillai@frankmax.digital?subject=Sovereign%20Matrix%20Access%20Request%20-%20Enterprise%20Tier" class="cta-primary block text-center">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-20 px-6 border-t border-gray-800" id="about">
+            <div class="max-w-6xl mx-auto">
+                <div class="card-base p-12 fade-in" x-intersect="$el.classList.add('visible')">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <p class="section-subtitle">ABOUT THIS PRODUCT</p>
+                            <h2 class="serif-heading text-3xl mb-6">Built for Institutional Intelligence</h2>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                The Sovereign Matrix is built by Frankmax Digital and is part of the Aureya Global Intelligence Infrastructure. It represents the foundation layer for AI-Native Enterprise deployment across 250 countries, providing the institutional taxonomy and entropy analysis required for strategic decision-making at scale.
+                            </p>
+                            <p class="text-gray-400 text-sm mb-8">
+                                This is not consumer-grade data. This is institutional intelligence for enterprises, consulting firms, and government bodies that require precision, reliability, and strategic depth.
+                            </p>
+                            <div class="border-t border-gray-700 pt-8">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-3">Principal Architect</p>
+                                <h4 class="font-bold text-lg mb-1">Andrew Franklin Leo</h4>
+                                <p class="text-sm text-gray-400">Founder & Systems Architect</p>
+                                <p class="text-sm text-accent-purple mt-4">
+                                    <a href="mailto:andrew.palupillai@frankmax.digital" class="hover:text-purple-400 transition">andrew.palupillai@frankmax.digital</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="card-base p-8 bg-gradient-to-br from-purple-900/20 to-transparent border-purple-700/20">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Frankmax Digital</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    A systems architecture and strategic intelligence firm building foundational infrastructure for AI-native enterprises.
+                                </p>
+                            </div>
+                            <div class="card-base p-8 bg-gradient-to-br from-red-900/10 to-transparent border-red-700/20">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Aureya Infrastructure</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    A next-generation intelligence infrastructure ecosystem connecting institutional data, operator intelligence, and AI execution layers.
+                                </p>
+                            </div>
+                            <div class="card-base p-8 bg-gradient-to-br from-blue-900/10 to-transparent border-blue-700/20">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">Confidential Product</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Access is controlled and metered. This product is distributed through a select partnership network only.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-800 py-12 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <p class="serif-heading text-sm mb-4">SOVEREIGN MATRIX</p>
+                        <p class="text-xs text-gray-500">AINEFF Global Entropy Intelligence</p>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4">Product</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><a href="#whats-inside" class="hover:text-white transition">Components</a></li>
+                            <li><a href="#dimensions" class="hover:text-white transition">Dimensions</a></li>
+                            <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4">Company</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><a href="https://frankmax.digital" class="hover:text-white transition">Frankmax Digital</a></li>
+                            <li><a href="https://andrewfranklinleo.com" class="hover:text-white transition">Andrew Franklin Leo</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4">Connect</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><a href="mailto:andrew.palupillai@frankmax.digital" class="hover:text-white transition">Email</a></li>
+                            <li><a href="mailto:andrew.palupillai@frankmax.digital?subject=Sovereign%20Matrix%20Access%20Request" class="hover:accent-purple transition">Request Access</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-xs text-gray-500 mb-4">
+                        Aureya Global Intelligence Infrastructure | Frankmax Digital | Institutional Intelligence Product
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        © 2026 Frankmax Digital. All rights reserved. The Sovereign Matrix is a confidential intelligence product distributed through controlled partnership channels only.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

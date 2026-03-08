@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andrew Palupillai - Architect of Obligation Infrastructure. Building systems that make AI accountable before the crisis, not after.">
+    <meta name="author" content="Andrew Palupillai">
+    <title>Andrew Palupillai - Obligation Infrastructure Architect</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0D1117;
+            --light-text: #F0F0F0;
+            --accent-gold: #F5A623;
+            --accent-blue: #4A9EFF;
+            --dark-gray: #1a1f26;
+            --mid-gray: #30363d;
+            --subtle-gray: #484f58;
+            --border-color: #21262d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ANIMATED BACKGROUND */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0D1117 0%, #1a1f26 50%, #0D1117 100%);
+            overflow: hidden;
+        }
+
+        .dot {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(74, 158, 255, 0.15);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+            50% { transform: translateY(-30px) translateX(20px); opacity: 0.6; }
+        }
+
+        /* HEADER / NAVIGATION */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--light-text);
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* MAIN CONTAINER */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .avatar {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(74, 158, 255, 0.2);
+        }
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="30" r="20" fill="rgba(255,255,255,0.1)"/><path d="M20 80 Q50 60 80 80" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent-gold);
+        }
+
+        .hero .title {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent-gold);
+            background-color: rgba(245, 166, 35, 0.1);
+            color: var(--accent-gold);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                gap: 3rem;
+                min-height: auto;
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .avatar {
+                width: 250px;
+                height: 250px;
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .title {
+                font-size: 1.1rem;
+            }
+
+            .avatar {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+        }
+
+        /* SECTION STYLING */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title .accent {
+            color: var(--accent-gold);
+        }
+
+        /* THE THESIS SECTION */
+        .thesis {
+            background: linear-gradient(to bottom, transparent, rgba(74, 158, 255, 0.05));
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .thesis p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .thesis p strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: var(--dark-bg);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* FRAMEWORKS GRID */
+        .frameworks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .framework-card {
+            background: linear-gradient(135deg, rgba(30, 36, 43, 0.6) 0%, rgba(20, 25, 32, 0.6) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .framework-card:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.08) 0%, rgba(20, 25, 32, 0.6) 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(74, 158, 255, 0.1);
+        }
+
+        .framework-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+
+        .framework-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--light-text);
+            opacity: 0.85;
+            flex-grow: 1;
+        }
+
+        .framework-card .btn {
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .frameworks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ECOSYSTEM SECTION */
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ecosystem-card {
+            background: linear-gradient(135deg, rgba(30, 36, 43, 0.8) 0%, rgba(20, 25, 32, 0.8) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: var(--light-text);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ecosystem-card:hover {
+            border-color: var(--accent-gold);
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.1) 0%, rgba(20, 25, 32, 0.8) 100%);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 50px rgba(245, 166, 35, 0.15);
+        }
+
+        .ecosystem-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .ecosystem-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.85;
+            flex-grow: 1;
+        }
+
+        .ecosystem-card .domain {
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .ecosystem-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WRITING SECTION */
+        .essays-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .essay-card {
+            background: linear-gradient(135deg, rgba(30, 36, 43, 0.6) 0%, rgba(20, 25, 32, 0.6) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--light-text);
+        }
+
+        .essay-card:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.08) 0%, rgba(20, 25, 32, 0.6) 100%);
+            transform: translateY(-4px);
+        }
+
+        .essay-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+
+        .essay-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--subtle-gray);
+            margin-top: auto;
+        }
+
+        .essay-tag {
+            background-color: rgba(74, 158, 255, 0.15);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .essays-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .essays-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--light-text);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(30, 36, 43, 0.6) 0%, rgba(20, 25, 32, 0.6) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info h4 {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background-color: rgba(245, 166, 35, 0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            color: var(--subtle-gray);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer .quote {
+            font-style: italic;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        footer .copyright {
+            color: var(--subtle-gray);
+            font-size: 0.85rem;
+        }
+
+        /* SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            main {
+                padding: 0 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANIMATED BACKGROUND -->
+    <div class="animated-background" id="background"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">Andrew <span>Palupillai</span></div>
+            <ul class="nav-links">
+                <li><a href="#thesis">The Thesis</a></li>
+                <li><a href="#frameworks">Frameworks</a></li>
+                <li><a href="#ecosystem">Ecosystem</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Andrew <span class="accent">Palupillai</span></h1>
+                <div class="title">Architect of Obligation Infrastructure</div>
+                <p class="tagline">Building the systems that make AI accountable — before the crisis, not after.</p>
+                <div class="hero-links">
+                    <a href="https://frankmax.digital" class="social-link" title="FrankMax Digital">FMD</a>
+                    <a href="https://levelup-max.com" class="social-link" title="LevelUp Max">LUM</a>
+                    <a href="https://linkedin.com" class="social-link" title="LinkedIn">in</a>
+                    <a href="https://twitter.com" class="social-link" title="Twitter">𝕏</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="avatar">AP</div>
+            </div>
+        </section>
+
+        <!-- THE THESIS SECTION -->
+        <section id="thesis">
+            <h2 class="section-title">The Problem <span class="accent">No One</span> Is Solving</h2>
+
+            <div class="thesis">
+                <p>Every AI system making decisions today operates without a bound human liability bearer. When something goes wrong — and it will — no one is accountable. Not the developer. Not the deployer. Not the operator. The liability evaporates into the architecture.</p>
+
+                <p>I'm building the infrastructure that makes this <strong>impossible</strong>.</p>
+
+                <p>The <strong>ORF Protocol</strong> ensures that every irreversible action has a human bound to it, at execution time. Not after. Not in theory. At the moment of decision.</p>
+
+                <p>This isn't regulation. This is infrastructure. This is what will separate the systems that survive regulatory scrutiny from the ones that don't.</p>
+
+                <a href="#" class="btn btn-primary">Read the Full ORF Protocol Thesis</a>
+            </div>
+        </section>
+
+        <!-- FRAMEWORKS SECTION -->
+        <section id="frameworks">
+            <h2 class="section-title">Core <span class="accent">Frameworks</span></h2>
+
+            <div class="frameworks-grid">
+                <!-- ATOMIC CONSTRAINT -->
+                <div class="framework-card reveal">
+                    <h3>The Atomic Constraint</h3>
+                    <p>"No system may execute an irreversible action unless a single, identifiable human liability bearer is bound at execution time."</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">This is the foundation. Everything else builds on this.</p>
+                    <a href="#" class="btn btn-secondary">Read the Essay</a>
+                </div>
+
+                <!-- 15-LAYER STACK -->
+                <div class="framework-card reveal">
+                    <h3>The 15-Layer Reality Stack</h3>
+                    <p style="font-size: 0.9rem;">Truth → Execution → Coordination → Governance → Enforcement → Evidence → Incentives → Trust → Meaning → Boundary → Irreversibility → Decay → Silence → Legibility to Power → Human Discipline</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">15 layers that any real governance system must address.</p>
+                    <a href="#" class="btn btn-secondary">Explore the Stack</a>
+                </div>
+
+                <!-- 5 FIRST PRINCIPLES -->
+                <div class="framework-card reveal">
+                    <h3>The 5 First Principles</h3>
+                    <p>"Actions precede authority. Legitimacy is compression. Obligation is memory. Accountability is asymmetric. Time is hidden power."</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">The irreducible foundations of AI governance.</p>
+                    <a href="#" class="btn btn-secondary">Read the Principles</a>
+                </div>
+
+                <!-- PRE-INCIDENT GOVERNANCE -->
+                <div class="framework-card reveal">
+                    <h3>Pre-Incident Governance</h3>
+                    <p>"The decision that caused your crisis was made 6 months ago. No one flagged it."</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Why post-incident response is the wrong paradigm.</p>
+                    <a href="#" class="btn btn-secondary">Read the Framework</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ECOSYSTEM SECTION -->
+        <section id="ecosystem">
+            <h2 class="section-title">The <span class="accent">Ecosystem</span></h2>
+
+            <p style="font-size: 1.05rem; color: var(--light-text); margin-bottom: 2rem; max-width: 700px;">These ideas aren't just theory. They're being built into real products, enterprise systems, and operator infrastructure. Three interconnected domains. One coherent architecture.</p>
+
+            <div class="ecosystem-grid">
+                <a href="https://frankmax.digital" class="ecosystem-card">
+                    <h3>FrankMax Digital</h3>
+                    <p>Enterprise governance systems. Interactive demos. Real products built on obligation infrastructure principles.</p>
+                    <div class="domain">frankmax.digital</div>
+                </a>
+
+                <a href="https://levelup-max.com" class="ecosystem-card">
+                    <h3>LevelUp Max</h3>
+                    <p>Operator training. AI governance certification. The talent factory for building the next generation of accountable AI operators.</p>
+                    <div class="domain">levelup-max.com</div>
+                </a>
+
+                <div class="ecosystem-card">
+                    <h3>The Architecture</h3>
+                    <p>535,000+ lines. 38 documents. 74 systems. 8 entities. The complete strategic blueprint, ready to deploy.</p>
+                    <div class="domain">Complete Specification</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WRITING SECTION -->
+        <section id="writing">
+            <h2 class="section-title">Latest <span class="accent">Thinking</span></h2>
+
+            <div class="essays-grid">
+                <a href="#" class="essay-card">
+                    <h4>Why Every AI Decision Needs a Human Bound to It</h4>
+                    <div class="meta">
+                        <span>Feb 2026</span>
+                        <span class="essay-tag">Read</span>
+                    </div>
+                </a>
+
+                <a href="#" class="essay-card">
+                    <h4>The 15 Layers Your Governance System Is Missing</h4>
+                    <div class="meta">
+                        <span>Mar 2026</span>
+                        <span class="essay-tag">Soon</span>
+                    </div>
+                </a>
+
+                <a href="#" class="essay-card">
+                    <h4>Pre-Incident Governance: A New Paradigm</h4>
+                    <div class="meta">
+                        <span>Mar 2026</span>
+                        <span class="essay-tag">Soon</span>
+                    </div>
+                </a>
+
+                <a href="#" class="essay-card">
+                    <h4>The Infrastructure That Will Be Worth More Than Oil</h4>
+                    <div class="meta">
+                        <span>Apr 2026</span>
+                        <span class="essay-tag">Soon</span>
+                    </div>
+                </a>
+
+                <a href="#" class="essay-card">
+                    <h4>What the Insurance Industry Doesn't Know About AI</h4>
+                    <div class="meta">
+                        <span>Apr 2026</span>
+                        <span class="essay-tag">Soon</span>
+                    </div>
+                </a>
+
+                <a href="#" class="essay-card">
+                    <h4>The Fragility Codex: 130 Domains, 1,300 Risks</h4>
+                    <div class="meta">
+                        <span>May 2026</span>
+                        <span class="essay-tag">Soon</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about-content">
+                <p>Andrew Palupillai is the founder of FrankMax Digital and the architect of the ORF Protocol — a framework for binding human accountability to AI systems at execution time. His work spans AI governance, obligation infrastructure, pre-incident decision control, and the economics of enterprise AI deployment.</p>
+
+                <p>He has authored over 535,000 lines of strategic architecture describing how AI systems can be made accountable, not through regulation alone, but through infrastructure that makes irresponsibility structurally impossible.</p>
+
+                <p>His thinking has been shaped by 20+ years of operating at the intersection of technology, institutional governance, and risk management. He believes the next wave of defensibility in AI comes not from better models, but from better obligations.</p>
+
+                <div class="contact-info">
+                    <h4>Get in Touch</h4>
+                    <p>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:andrew.palupillai@frankmax.digital">andrew.palupillai@frankmax.digital</a>
+                    </p>
+                    <p>
+                        <strong>Connect</strong>
+                    </p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/andrewpalupillai" title="LinkedIn">LinkedIn</a>
+                        <a href="https://twitter.com/andrewpalupillai" title="Twitter">Twitter</a>
+                        <a href="https://frankmax.digital" title="FrankMax Digital">FrankMax</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="quote">"The architecture exists. The systems are real. The question is whether accountability becomes infrastructure — or remains a wish."</p>
+        <p class="copyright">© 2026 Andrew Palupillai. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // GENERATE ANIMATED BACKGROUND DOTS
+        function generateBackground() {
+            const bg = document.getElementById('background');
+            const dotCount = 50;
+
+            for (let i = 0; i < dotCount; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 100 + '%';
+                dot.style.animationDelay = Math.random() * 20 + 's';
+                dot.style.animationDuration = (15 + Math.random() * 20) + 's';
+                bg.appendChild(dot);
+            }
+        }
+        generateBackground();
+
+        // SCROLL REVEAL
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // SMOOTH SCROLL FOR NAV LINKS
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // HEADER BACKGROUND ON SCROLL
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(13, 17, 23, 0.95)';
+            } else {
+                header.style.background = 'rgba(13, 17, 23, 0.85)';
+            }
+        });
+
+        // DARK MODE DETECTION (respects user preference)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.style.colorScheme = 'light';
+        }
+    </script>
+</body>
+</html>

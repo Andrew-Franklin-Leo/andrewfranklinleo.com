@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:frankmax-com.github.io)",
+      "WebFetch(domain:andrew-leo-2024.github.io)",
+      "Bash(wc:*)",
+      "Bash(ls -lh \"C:\\\\Users\\\\AndrewFranklin\\\\Projects\\\\Claude\\\\andrewfranklinleo.com\\\\docs\\\\docs\"/*.md)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npx next:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:www.forbes.com)",
+      "WebFetch(domain:www.ft.com)",
+      "WebFetch(domain:www.bloomberg.com)",
+      "WebFetch(domain:www.reuters.com)",
+      "WebFetch(domain:www.wsj.com)",
+      "WebSearch",
+      "Bash(npm run:*)",
+      "Bash(npx tsx:*)",
+      "Bash(npm ls:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx:*)"
+    ]
+  }
+}
