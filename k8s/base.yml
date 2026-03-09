@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: andrewfranklinleo
+  labels:
+    app: andrewfranklinleo
+spec:
+  replicas: REPLICA_COUNT
+  selector:
+    matchLabels:
+      app: andrewfranklinleo
+  template:
+    metadata:
+      labels:
+        app: andrewfranklinleo
+    spec:
+      containers:
+        - name: web
+          image: IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: andrewfranklinleo-env
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: andrewfranklinleo
+spec:
+  selector:
+    app: andrewfranklinleo
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: ClusterIP

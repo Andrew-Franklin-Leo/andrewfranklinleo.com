@@ -1,0 +1,86 @@
+name: Deploy to Kubernetes
+
+# Option B: K8s environments (non-prod / prod)
+# Requires: KUBE_CONFIG secret, container registry credentials
+
+on:
+  push:
+    branches:
+      - develop    # -> non-prod
+      - main       # -> prod
+
+env:
+  IMAGE_NAME: andrewfranklinleo
+  REGISTRY: ghcr.io/${{ github.repository_owner }}
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image_tag: ${{ steps.meta.outputs.tags }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=ref,event=branch
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  deploy-nonprod:
+    needs: build-image
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: non-prod
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: azure/setup-kubectl@v4
+
+      - uses: azure/k8s-set-context@v4
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG_NONPROD }}
+
+      - uses: azure/k8s-deploy@v5
+        with:
+          namespace: andrewfranklinleo-nonprod
+          manifests: k8s/non-prod/
+          images: ${{ needs.build-image.outputs.image_tag }}
+
+  deploy-prod:
+    needs: build-image
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: azure/setup-kubectl@v4
+
+      - uses: azure/k8s-set-context@v4
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG_PROD }}
+
+      - uses: azure/k8s-deploy@v5
+        with:
+          namespace: andrewfranklinleo-prod
+          manifests: k8s/prod/
+          images: ${{ needs.build-image.outputs.image_tag }}

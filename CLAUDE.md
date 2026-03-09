@@ -15,12 +15,22 @@ AI governance authority platform for Andrew Palupillai (andrewfranklinleo.com). 
 - **Branches**: `main` (production), `develop` (integration), `feature/*` (work branches)
 - **Flow**: `feature/*` -> PR to `develop` -> PR to `main` -> auto-deploy to Firebase
 - **GitHub Actions** (`.github/workflows/`):
-  - `ci.yml` — Lint + build on all PRs and pushes to `develop`
-  - `deploy-production.yml` — Auto-deploy to Firebase on push to `main`
-  - `deploy-preview.yml` — Preview channel URL on PRs to `main`
-- **Firebase Hosting**: https://andrewfranklinleo-site.web.app (project: `andrewfranklinleo-site`, us-central1)
-- Dynamic routes and API endpoints run as a Cloud Function (2nd Gen)
-- **Local deploy** (Windows): `node -r "./patch-symlink.cjs" "./node_modules/firebase-tools/lib/bin/firebase.js" deploy` — standard `npx firebase deploy` fails on Windows due to EPERM symlink errors
+  - `ci.yml` — Lint + build on PRs to `main`/`develop`
+  - `deploy-preview.yml` — Firebase preview channel URL on PRs to `main`
+  - `deploy-preprod.yml` — **(Option A)** Firebase pre-prod channel on push to `develop`
+  - `deploy-production.yml` — **(Option A)** Firebase live deploy on push to `main`
+  - `deploy-k8s.yml` — **(Option B)** K8s non-prod/prod with Docker image to GHCR
+- **Option A — Firebase environments**:
+  - Pre-prod: Firebase preview channel (30d expiry) on `develop` push
+  - Production: https://andrewfranklinleo-site.web.app on `main` push
+  - Dynamic routes run as Cloud Function (2nd Gen, us-central1)
+- **Option B — Kubernetes environments**:
+  - Non-prod: `andrewfranklinleo-nonprod` namespace (1 replica, low resources)
+  - Prod: `andrewfranklinleo-prod` namespace (3 replicas, Ingress + TLS)
+  - Manifests: `k8s/base.yml`, `k8s/non-prod/`, `k8s/prod/` (Kustomize)
+  - Image: `ghcr.io/<owner>/andrewfranklinleo` via `Dockerfile`
+  - Requires: `KUBE_CONFIG_NONPROD`, `KUBE_CONFIG_PROD` secrets
+- **Local deploy** (Windows): `node -r "./patch-symlink.cjs" "./node_modules/firebase-tools/lib/bin/firebase.js" deploy`
 
 ## Tech Stack
 - Next.js 16 (App Router), React 19, TypeScript 5 (strict mode)

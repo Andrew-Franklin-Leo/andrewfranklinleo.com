@@ -1,0 +1,39 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: andrewfranklinleo-prod
+
+resources:
+  - ../base.yml
+
+patches:
+  - target:
+      kind: Deployment
+      name: andrewfranklinleo
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 3
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: andrewfranklinleo
+  namespace: andrewfranklinleo-prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - andrewfranklinleo.com
+      secretName: andrewfranklinleo-tls
+  rules:
+    - host: andrewfranklinleo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: andrewfranklinleo
+                port:
+                  number: 80
