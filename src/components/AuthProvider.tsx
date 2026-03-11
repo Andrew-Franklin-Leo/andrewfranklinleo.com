@@ -31,9 +31,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        if (!auth) {
+            setLoading(false);
+            return;
+        }
+
         const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
             setUser(firebaseUser);
-            if (firebaseUser) {
+            if (firebaseUser && db) {
                 try {
                     const profileDoc = await getDoc(doc(db, 'stakeholders', firebaseUser.uid));
                     if (profileDoc.exists()) {

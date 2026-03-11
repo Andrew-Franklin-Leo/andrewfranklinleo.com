@@ -60,7 +60,7 @@ export default function PortalClient() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [user, setUser] = useState(auth.currentUser);
+    const [user, setUser] = useState(auth?.currentUser ?? null);
     const [profile, setProfile] = useState<StakeholderProfile | null>(null);
     const [activity, setActivity] = useState<LedgerEntry[]>([]);
     const [profileLoading, setProfileLoading] = useState(false);
@@ -68,6 +68,7 @@ export default function PortalClient() {
     const [activeTab, setActiveTab] = useState<'overview' | 'billing' | 'usage'>('overview');
 
     const loadProfile = async (uid: string, userEmail: string) => {
+        if (!db) return;
         setProfileLoading(true);
         try {
             const profileRef = doc(db, 'stakeholders', uid);
@@ -106,6 +107,7 @@ export default function PortalClient() {
         setLoading(true);
         setError(null);
         try {
+            if (!auth) throw new Error('Authentication not configured');
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             setUser(userCredential.user);
             await loadProfile(userCredential.user.uid, userCredential.user.email || email);
@@ -118,7 +120,7 @@ export default function PortalClient() {
     };
 
     const handleLogout = async () => {
-        await auth.signOut();
+        await auth?.signOut();
         setUser(null);
         setProfile(null);
         setActivity([]);

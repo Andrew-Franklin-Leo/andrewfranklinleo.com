@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useSyncExternalStore } from 'react';
+import { useState, useEffect, useCallback, useMemo, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 
 interface ReadingListItem {
@@ -11,30 +11,34 @@ interface ReadingListItem {
 
 const STORAGE_KEY = 'afl_reading_list';
 
-function getSnapshot(): ReadingListItem[] {
-  if (typeof window === 'undefined') return [];
+function getRawSnapshot(): string {
+  if (typeof window === 'undefined') return '[]';
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch { return []; }
+    return localStorage.getItem(STORAGE_KEY) || '[]';
+  } catch { return '[]'; }
 }
 
-function getServerSnapshot(): ReadingListItem[] { return []; }
+function getServerSnapshot(): string { return '[]'; }
 
 const listeners = new Set<() => void>();
 function subscribe(cb: () => void) { listeners.add(cb); return () => listeners.delete(cb); }
 function emitChange() { listeners.forEach((cb) => cb()); }
 function setItems(items: ReadingListItem[]) { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); emitChange(); }
 
+function parseItems(raw: string): ReadingListItem[] {
+  try { return JSON.parse(raw); } catch { return []; }
+}
+
 export function useReadingList() {
-  const items = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const raw = useSyncExternalStore(subscribe, getRawSnapshot, getServerSnapshot);
+  const items = useMemo(() => parseItems(raw), [raw]);
   const addItem = useCallback((title: string, url: string) => {
-    const current = getSnapshot();
+    const current = parseItems(getRawSnapshot());
     if (current.some((i) => i.url === url)) return;
     setItems([...current, { title, url, savedAt: new Date().toISOString() }]);
   }, []);
   const removeItem = useCallback((url: string) => {
-    setItems(getSnapshot().filter((i) => i.url !== url));
+    setItems(parseItems(getRawSnapshot()).filter((i) => i.url !== url));
   }, []);
   const isInList = useCallback((url: string) => items.some((i) => i.url === url), [items]);
   return { items, addItem, removeItem, isInList };
