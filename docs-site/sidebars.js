@@ -3,6 +3,74 @@ module.exports = {
     'intro',
     {
       type: 'category',
+      label: 'Ecosystem',
+      items: [
+        'ecosystem/overview',
+        'ecosystem/aureya-os',
+        'ecosystem/aine',
+        'ecosystem/tower-control',
+        'ecosystem/wge',
+        'ecosystem/agent-patterns',
+        'ecosystem/self-healing',
+        'ecosystem/monetization',
+        'ecosystem/marketplaces',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Products',
+      items: [
+        'products/overview',
+        {
+          type: 'category',
+          label: 'Development & Engineering',
+          items: [
+            'products/aureya-code',
+            'products/aureya-builder',
+            'products/codebot',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Productivity & Operations',
+          items: [
+            'products/maxwork',
+            'products/aureya-pm',
+            'products/aureya-collab',
+            'products/aureya-drive',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Research & Knowledge',
+          items: [
+            'products/aureya-notebook',
+            'products/aureya-scholar',
+            'products/aureya-search',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Creative & Design',
+          items: [
+            'products/aureya-design',
+            'products/aureya-studio',
+            'products/aureya-marketing',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Infrastructure & Platform',
+          items: [
+            'products/aureya-local',
+            'products/aureya-hub',
+            'products/frankmax-plugins',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Architecture',
       items: [
         'architecture/overview',

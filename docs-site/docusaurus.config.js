@@ -5,13 +5,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'andrewfranklinleo.com Docs',
   tagline: 'AI Governance Authority Platform Documentation',
-  url: 'https://docs.andrewfranklinleo.com',
-  baseUrl: '/',
+  url: 'https://andrew-leo-2024.github.io',
+  baseUrl: '/andrewfranklinleo-docs/',
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'andrewfranklinleo',
-  projectName: 'andrewfranklinleo.com',
+  organizationName: 'andrew-leo-2024',
+  projectName: 'andrewfranklinleo-docs',
 
   presets: [
     [
@@ -47,6 +48,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             label: 'Documentation',
           },
           {
+            type: 'doc',
+            docId: 'products/overview',
+            position: 'left',
+            label: 'Products',
+          },
+          {
             href: 'https://andrewfranklinleo.com',
             label: 'Live Site',
             position: 'right',
@@ -62,6 +69,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               { label: 'Architecture', to: '/architecture/overview' },
               { label: 'Monetization', to: '/monetization/revenue-streams' },
               { label: 'API Reference', to: '/api/endpoints' },
+            ],
+          },
+          {
+            title: 'Products',
+            items: [
+              { label: 'Product Catalog', to: '/products/overview' },
+              { label: 'Aureya Code', to: '/products/aureya-code' },
+              { label: 'Aureya Notebook', to: '/products/aureya-notebook' },
+              { label: 'Maxwork', to: '/products/maxwork' },
             ],
           },
           {

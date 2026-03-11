@@ -1,0 +1,85 @@
+name: Auto-Research Intelligence Scanner
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9am UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  scan-github-trends:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Scan GitHub trends and monitored repos
+        id: scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx tsx scripts/scan-github-trends.ts > /tmp/research-report.md
+
+      - name: Create research issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          WEEK=$(date +%Y-W%V)
+          gh issue create \
+            --title "Auto-Research Digest: $WEEK" \
+            --body-file /tmp/research-report.md \
+            --label "auto-research" \
+            --label "intelligence"
+
+  scan-arxiv:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Scan arXiv for relevant papers
+        id: arxiv
+        run: |
+          # Search arXiv for recent papers on multi-agent systems and autonomous AI
+          QUERIES=(
+            "multi-agent+systems+autonomous"
+            "self-healing+AI+systems"
+            "agentic+AI+governance"
+            "closed+loop+feedback+LLM"
+            "swarm+intelligence+large+language+models"
+          )
+
+          echo "# arXiv Research Scan — $(date +%Y-%m-%d)" > /tmp/arxiv-report.md
+          echo "" >> /tmp/arxiv-report.md
+
+          for QUERY in "${QUERIES[@]}"; do
+            echo "## Query: ${QUERY//+/ }" >> /tmp/arxiv-report.md
+            echo "" >> /tmp/arxiv-report.md
+
+            # Use arXiv API to fetch recent papers (last 7 days)
+            curl -s "http://export.arxiv.org/api/query?search_query=all:${QUERY}&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending" \
+              | grep -oP '(?<=<title>).*?(?=</title>)' \
+              | head -5 \
+              | while read -r title; do
+                echo "- $title" >> /tmp/arxiv-report.md
+              done
+
+            echo "" >> /tmp/arxiv-report.md
+          done
+
+      - name: Append arXiv findings to issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          WEEK=$(date +%Y-W%V)
+          # Find the existing research issue for this week and add a comment
+          ISSUE_NUM=$(gh issue list --label "auto-research" --search "$WEEK" --json number -q '.[0].number' 2>/dev/null || echo "")
+          if [ -n "$ISSUE_NUM" ]; then
+            gh issue comment "$ISSUE_NUM" --body-file /tmp/arxiv-report.md
+          fi
