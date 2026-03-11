@@ -1,0 +1,158 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: andrewfranklinleo
+  labels:
+    app: andrewfranklinleo
+    tier: platform
+    ecosystem: aineff
+    environment: production
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: andrewfranklinleo
+  template:
+    metadata:
+      labels:
+        app: andrewfranklinleo
+        tier: platform
+        ecosystem: aineff
+        environment: production
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: andrewfranklinleo
+      containers:
+        - name: web
+          image: us-central1-docker.pkg.dev/andrewfranklinleo-site/andrewfranklinleo/platform:latest
+          ports:
+            - containerPort: 3000
+              name: http
+          envFrom:
+            - secretRef:
+                name: platform-env
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+              ephemeral-storage: 512Mi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+              ephemeral-storage: 1Gi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /
+              port: 3000
+            failureThreshold: 30
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: andrewfranklinleo
+  labels:
+    app: andrewfranklinleo
+spec:
+  selector:
+    app: andrewfranklinleo
+  ports:
+    - port: 80
+      targetPort: 3000
+      name: http
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: andrewfranklinleo
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: andrewfranklinleo
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 65
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 75
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+        - type: Pods
+          value: 2
+          periodSeconds: 60
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 120
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: andrewfranklinleo
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: andrewfranklinleo-ip
+    networking.gke.io/managed-certificates: andrewfranklinleo-cert
+    kubernetes.io/ingress.class: gce
+spec:
+  defaultBackend:
+    service:
+      name: andrewfranklinleo
+      port:
+        number: 80
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: andrewfranklinleo-cert
+spec:
+  domains:
+    - andrewfranklinleo.com
+    - www.andrewfranklinleo.com
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: andrewfranklinleo
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: andrewfranklinleo

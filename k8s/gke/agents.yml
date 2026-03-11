@@ -1,0 +1,252 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aineff-agent-runtime
+  labels:
+    app: aineff-agent-runtime
+    tier: agents
+    ecosystem: aineff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aineff-agent-runtime
+  template:
+    metadata:
+      labels:
+        app: aineff-agent-runtime
+        tier: agents
+        ecosystem: aineff
+    spec:
+      containers:
+        - name: agent-runtime
+          image: us-central1-docker.pkg.dev/andrewfranklinleo-site/andrewfranklinleo/agent-runtime:latest
+          ports:
+            - containerPort: 8080
+              name: http
+          envFrom:
+            - secretRef:
+                name: agent-env
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 4Gi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 60
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aineff-agent-runtime
+  labels:
+    app: aineff-agent-runtime
+spec:
+  selector:
+    app: aineff-agent-runtime
+  ports:
+    - port: 80
+      targetPort: 8080
+      name: http
+  type: ClusterIP
+---
+# Auto-Research Scanner CronJob
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: auto-research-scanner
+  labels:
+    app: auto-research-scanner
+    tier: agents
+    ecosystem: aineff
+spec:
+  schedule: "0 9 * * 1"  # Every Monday at 9am UTC
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 4
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 1800
+      template:
+        metadata:
+          labels:
+            app: auto-research-scanner
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: scanner
+              image: us-central1-docker.pkg.dev/andrewfranklinleo-site/andrewfranklinleo/platform:latest
+              command: ["npx", "tsx", "scripts/scan-github-trends.ts"]
+              envFrom:
+                - secretRef:
+                    name: agent-env
+              resources:
+                requests:
+                  cpu: 250m
+                  memory: 512Mi
+                limits:
+                  cpu: "1"
+                  memory: 1Gi
+---
+# WGE (Work Genesis Engine) Sprint Executor
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wge-engine
+  labels:
+    app: wge-engine
+    tier: agents
+    ecosystem: aineff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wge-engine
+  template:
+    metadata:
+      labels:
+        app: wge-engine
+        tier: agents
+        ecosystem: aineff
+    spec:
+      containers:
+        - name: wge
+          image: us-central1-docker.pkg.dev/andrewfranklinleo-site/andrewfranklinleo/wge:latest
+          ports:
+            - containerPort: 8081
+              name: http
+          envFrom:
+            - secretRef:
+                name: agent-env
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 4Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wge-engine
+spec:
+  selector:
+    app: wge-engine
+  ports:
+    - port: 80
+      targetPort: 8081
+  type: ClusterIP
+---
+# Tower Control Knowledge Graph
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tower-control
+  labels:
+    app: tower-control
+    tier: agents
+    ecosystem: aineff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tower-control
+  template:
+    metadata:
+      labels:
+        app: tower-control
+        tier: agents
+        ecosystem: aineff
+    spec:
+      containers:
+        - name: tower-control
+          image: us-central1-docker.pkg.dev/andrewfranklinleo-site/andrewfranklinleo/tower-control:latest
+          ports:
+            - containerPort: 8082
+              name: http
+          envFrom:
+            - secretRef:
+                name: agent-env
+          resources:
+            requests:
+              cpu: "1"
+              memory: 2Gi
+            limits:
+              cpu: "4"
+              memory: 8Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tower-control
+spec:
+  selector:
+    app: tower-control
+  ports:
+    - port: 80
+      targetPort: 8082
+  type: ClusterIP
+---
+# E-AEGL Governance Engine
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eagl-governance
+  labels:
+    app: eagl-governance
+    tier: agents
+    ecosystem: aineff
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eagl-governance
+  template:
+    metadata:
+      labels:
+        app: eagl-governance
+        tier: agents
+        ecosystem: aineff
+    spec:
+      containers:
+        - name: eagl
+          image: us-central1-docker.pkg.dev/andrewfranklinleo-site/andrewfranklinleo/eagl:latest
+          ports:
+            - containerPort: 8083
+              name: http
+          envFrom:
+            - secretRef:
+                name: agent-env
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 4Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eagl-governance
+spec:
+  selector:
+    app: eagl-governance
+  ports:
+    - port: 80
+      targetPort: 8083
+  type: ClusterIP
