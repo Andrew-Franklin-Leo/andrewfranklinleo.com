@@ -5,7 +5,7 @@ import { pciMonitor } from '@/lib/governance/pci-monitor';
 import {
   PortfolioSummary, PortfolioRisk, EntityRiskProfile, GovernanceSignal,
   KillDecision, KillDecisionStatus, CascadeAnalysis,
-  PortfolioRebalanceRecommendation, SignalType, PortfolioAlertSeverity,
+  PortfolioRebalanceRecommendation,
 } from './types';
 
 function generateId(prefix: string): string {

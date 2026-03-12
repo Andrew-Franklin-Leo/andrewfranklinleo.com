@@ -5,7 +5,7 @@ import { policyEngine } from '@/lib/governance/policy-engine';
 import {
   Enterprise, EnterpriseStatus, EnterpriseVertical, EnterpriseTemplate,
   EnterpriseHealth, TerminationRequest, TerminationSequence, TerminationStep,
-  TerminationReason, AgentConfig,
+  /* TerminationReason, AgentConfig — used by callers */
 } from './types';
 import { ENTERPRISE_TEMPLATES } from './templates';
 

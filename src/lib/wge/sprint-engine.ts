@@ -2,7 +2,7 @@ import { adminDb } from '@/lib/firebase/admin';
 import { eventBus } from '@/lib/agents/event-bus';
 import {
   Sprint, SprintType, SprintStatus, SprintTask, SprintTaskStatus,
-  SprintKPI, SprintScope, SprintReport, SprintKillCondition,
+  SprintScope, SprintReport,
   IntakeRequest, ExpansionOffer, Operator, OperatorStatus,
 } from './types';
 import { SPRINT_DEFINITIONS } from './sprint-definitions';
@@ -425,9 +425,6 @@ export const sprintEngine = {
     byStatus: Record<string, number>;
   }> {
     const sprints = await this.list();
-    const expansions = await adminDb.collection('wge_expansions')
-      .where('status', '==', 'accepted').get();
-
     const byType: Record<string, number> = {};
     const byStatus: Record<string, number> = {};
     sprints.forEach(s => {
