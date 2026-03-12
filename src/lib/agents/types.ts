@@ -1,6 +1,6 @@
 export type AgentStatus = 'created' | 'starting' | 'running' | 'stopping' | 'stopped' | 'failed' | 'retired';
 export type AgentType = 'governance' | 'intelligence' | 'execution' | 'monitoring' | 'orchestration';
-export type EngineName = 'eagl' | 'tower-control' | 'wge' | 'agent-runtime' | 'standalone';
+export type EngineName = 'eagl' | 'tower-control' | 'wge' | 'ainef' | 'aineg' | 'agent-runtime' | 'standalone';
 
 export interface AgentPolicy {
   id: string;
