@@ -1,9 +1,9 @@
-name: Auto-Research Intelligence Scanner
+name: Organism Evolution — Daily Research + Mutation Cycle
 
 on:
   schedule:
-    - cron: '0 9 * * 1' # Every Monday at 9am UTC
-  workflow_dispatch: # Allow manual trigger
+    - cron: '0 6 * * *'  # Every day at 6am UTC
+  workflow_dispatch:
 
 jobs:
   scan-github-trends:
@@ -31,12 +31,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          WEEK=$(date +%Y-W%V)
+          DATE=$(date +%Y-%m-%d)
           gh issue create \
-            --title "Auto-Research Digest: $WEEK" \
+            --title "Evolution Digest: $DATE" \
             --body-file /tmp/research-report.md \
             --label "auto-research" \
-            --label "intelligence"
+            --label "evolution"
 
   scan-arxiv:
     runs-on: ubuntu-latest
@@ -46,13 +46,14 @@ jobs:
       - name: Scan arXiv for relevant papers
         id: arxiv
         run: |
-          # Search arXiv for recent papers on multi-agent systems and autonomous AI
           QUERIES=(
             "multi-agent+systems+autonomous"
             "self-healing+AI+systems"
             "agentic+AI+governance"
             "closed+loop+feedback+LLM"
             "swarm+intelligence+large+language+models"
+            "autonomous+enterprise+AI"
+            "evolutionary+algorithm+neural+architecture"
           )
 
           echo "# arXiv Research Scan — $(date +%Y-%m-%d)" > /tmp/arxiv-report.md
@@ -62,7 +63,6 @@ jobs:
             echo "## Query: ${QUERY//+/ }" >> /tmp/arxiv-report.md
             echo "" >> /tmp/arxiv-report.md
 
-            # Use arXiv API to fetch recent papers (last 7 days)
             curl -s "http://export.arxiv.org/api/query?search_query=all:${QUERY}&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending" \
               | grep -oP '(?<=<title>).*?(?=</title>)' \
               | head -5 \
@@ -77,9 +77,37 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          WEEK=$(date +%Y-W%V)
-          # Find the existing research issue for this week and add a comment
-          ISSUE_NUM=$(gh issue list --label "auto-research" --search "$WEEK" --json number -q '.[0].number' 2>/dev/null || echo "")
+          DATE=$(date +%Y-%m-%d)
+          ISSUE_NUM=$(gh issue list --label "auto-research" --search "$DATE" --json number -q '.[0].number' 2>/dev/null || echo "")
           if [ -n "$ISSUE_NUM" ]; then
             gh issue comment "$ISSUE_NUM" --body-file /tmp/arxiv-report.md
+          fi
+
+  evolve:
+    runs-on: ubuntu-latest
+    needs: [scan-github-trends, scan-arxiv]
+    if: always()
+    permissions:
+      contents: read
+    steps:
+      - name: Trigger evolution cycle
+        env:
+          EVOLUTION_API: ${{ secrets.NEXT_PUBLIC_BASE_URL || 'https://aineff-platform.web.app' }}
+        run: |
+          echo "Triggering daily evolution cycle..."
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+            "${EVOLUTION_API}/api/evolution/cycles" \
+            -H "Content-Type: application/json" \
+            -d '{"trigger":"scheduled","config":{"mutationsPerCycle":5}}')
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+
+          echo "HTTP Status: $HTTP_CODE"
+          echo "Response: $BODY"
+
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+            echo "Evolution cycle triggered successfully"
+          else
+            echo "Evolution cycle trigger failed (non-fatal)"
           fi
