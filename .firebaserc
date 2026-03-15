@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "andrewfranklinleo-site"
+    "default": "andrewfranklinleo-site",
+    "prod": "aineff-platform",
+    "dev": "andrewfranklinleo-site"
   }
 }
