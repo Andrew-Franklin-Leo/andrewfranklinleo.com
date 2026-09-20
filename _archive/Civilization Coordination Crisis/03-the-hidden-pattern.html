@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03 · The Hidden Pattern</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#142520;--paper:#f4f1e8;--line:#c7cec2;--leaf:#426e59;--muted:#607069;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}
+.shell{width:min(1220px,calc(100% - 48px));margin:auto}
+nav,footer{padding:24px 0;border-bottom:1px solid var(--line)}
+section{padding:90px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font:11px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf)}
+h1,h2{font-family:"Playfair Display",serif;letter-spacing:-.05em}
+h1{font-size:clamp(3.5rem,7vw,5.8rem);line-height:.95;margin:.25em 0}
+.lede{max-width:760px;font-size:1.15rem;line-height:1.75;color:#4b5b54}
+.matrix{display:grid;grid-template-columns:220px repeat(5,1fr);border:1px solid var(--line)}
+.matrix div{padding:16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:72px}
+.head{background:#ebe9df;font-weight:700}
+.bad{background:#f6dfdf}.good{background:#e6f0e7}
+.callout{font:500 2rem/1.25 "Playfair Display",serif;max-width:900px}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav><strong>Andrew Franklin Leo</strong></nav>
+
+<section>
+<div class="eyebrow">Chapter 03</div>
+<h1>The Hidden Pattern</h1>
+<p class="lede">Climate change, financial crises, pandemics, infrastructure failures, cyber attacks, and institutional decline appear unrelated. Their surface mechanics differ, yet their underlying architecture repeatedly converges on the same coordination failure patterns.</p>
+</section>
+
+<section>
+<p class="callout">Different crises. The same structural blueprint.</p>
+<div class="matrix">
+<div class="head">System</div><div class="head">Information</div><div class="head">Incentives</div><div class="head">Trust</div><div class="head">Feedback</div><div class="head">Coordination</div>
+
+<div>Climate</div><div class="bad">Fragmented</div><div class="bad">Misaligned</div><div class="bad">Declining</div><div class="bad">Slow</div><div class="bad">Global failure</div>
+
+<div>Pandemics</div><div class="bad">Delayed</div><div class="bad">Conflicting</div><div class="bad">Variable</div><div class="bad">Reactive</div><div class="bad">Cross-border gaps</div>
+
+<div>Financial Markets</div><div class="good">High</div><div class="bad">Short-term</div><div class="bad">Fragile</div><div class="good">Fast</div><div class="bad">Systemic contagion</div>
+
+<div>AI Governance</div><div class="good">Abundant</div><div class="bad">Competitive</div><div class="bad">Unsettled</div><div class="bad">Lagging</div><div class="bad">No global protocol</div>
+
+<div>Supply Chains</div><div class="bad">Opaque</div><div class="bad">Local</div><div class="good">Moderate</div><div class="bad">Delayed</div><div class="bad">Cascade effects</div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Five Recurring Failure Modes</div>
+<h2>Every crisis leaves the same fingerprints.</h2>
+<ol>
+<li>Information arrives too late.</li>
+<li>Actors optimize locally rather than globally.</li>
+<li>Institutions lose operational memory.</li>
+<li>Feedback loops are too slow for system speed.</li>
+<li>No shared coordination protocol exists across organizational boundaries.</li>
+</ol>
+</section>
+
+<section>
+<div class="eyebrow">Transition</div>
+<h2>History shows that every leap in civilization expanded coordination capacity.</h2>
+<p class="lede">The next chapter traces the evolution from spoken language to writing, money, states, the internet, and artificial intelligence through the lens of coordination rather than technology alone.</p>
+</section>
+
+<footer>Next: History of Civilization Coordination</footer>
+</div>
+<script src="crisis-navigation.js"></script>
+</body>
+</html>

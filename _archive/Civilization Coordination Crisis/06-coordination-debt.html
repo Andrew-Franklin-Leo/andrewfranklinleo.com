@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>06 · Coordination Debt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#142520;--paper:#f4f1e8;--line:#c7cec2;--leaf:#426e59;--muted:#607069;--warn:#f3e2c7;}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}
+.shell{width:min(1220px,calc(100% - 48px));margin:auto}
+nav,footer{padding:24px 0;border-bottom:1px solid var(--line)}
+section{padding:82px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font:11px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf)}
+h1,h2{font-family:"Playfair Display",serif;letter-spacing:-.05em}
+h1{font-size:clamp(3.7rem,7vw,6rem);line-height:.94;margin:.2em 0}
+.lede{max-width:840px;font-size:1.1rem;line-height:1.8;color:#495850}
+.quote{font:500 2rem/1.28 "Playfair Display",serif;max-width:920px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:34px}
+.card{border:1px solid var(--line);padding:24px;background:#faf8f2}
+.card h3{margin:0 0 10px;font-family:"Playfair Display",serif}
+.table{display:grid;grid-template-columns:220px repeat(3,1fr);gap:1px;background:var(--line);margin-top:40px}
+.table>div{background:var(--paper);padding:18px}
+.head{background:#e9ede5;font-weight:700}
+.warn{background:var(--warn)}
+@media(max-width:800px){.grid,.table{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav><strong>Andrew Franklin Leo</strong></nav>
+
+<section>
+<div class="eyebrow">Chapter 06</div>
+<h1>Coordination Debt</h1>
+<p class="lede">
+Technical debt accumulates when software shortcuts are left unresolved. Coordination debt accumulates when organizations repeatedly postpone structural improvements to information flow, governance, incentives, accountability, and institutional memory. Unlike financial liabilities, coordination debt rarely appears on a balance sheet. It appears later as delays, duplicated work, mistrust, crises, regulatory failures, and declining institutional adaptability.
+</p>
+</section>
+
+<section>
+<p class="quote">Every unresolved coordination problem becomes tomorrow's operating cost.</p>
+
+<div class="grid">
+<div class="card">
+<h3>How Debt Forms</h3>
+<ul>
+<li>Knowledge trapped in individuals.</li>
+<li>Disconnected technology platforms.</li>
+<li>Conflicting incentives across departments.</li>
+<li>Decision rights that are unclear.</li>
+<li>Manual processes replacing shared protocols.</li>
+<li>Governance updated after failures instead of before them.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Observable Symptoms</h3>
+<ul>
+<li>Long approval cycles.</li>
+<li>Repeated meetings without decisions.</li>
+<li>Conflicting versions of truth.</li>
+<li>Repeated incident investigations.</li>
+<li>Increasing compliance overhead.</li>
+<li>Growing dependence on institutional heroes.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Debt Lifecycle</div>
+<div class="table">
+<div class="head">Stage</div><div class="head">What Happens</div><div class="head">Visible Effect</div><div class="head">Hidden Cost</div>
+
+<div>1. Local Shortcut</div><div>Teams optimize for immediate delivery.</div><div>Higher short-term velocity.</div><div class="warn">Shared standards weaken.</div>
+
+<div>2. Fragmentation</div><div>Independent solutions multiply.</div><div>Integration projects increase.</div><div class="warn">Information asymmetry grows.</div>
+
+<div>3. Institutional Drift</div><div>Policies and reality diverge.</div><div>Audit findings rise.</div><div class="warn">Trust declines.</div>
+
+<div>4. Systemic Crisis</div><div>Minor failures cascade across systems.</div><div>Emergency governance.</div><div class="warn">Transformation becomes expensive.</div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Reducing Coordination Debt</div>
+<h2>Replace heroics with infrastructure.</h2>
+<div class="grid">
+<div class="card">
+<h3>Shared Memory</h3>
+<p>Create durable institutional knowledge instead of relying on individual experience.</p>
+</div>
+<div class="card">
+<h3>Shared Semantics</h3>
+<p>Standardize definitions, policies, and data models across organizational boundaries.</p>
+</div>
+<div class="card">
+<h3>Governance by Design</h3>
+<p>Embed accountability, approval rules, and decision rights into operating workflows.</p>
+</div>
+<div class="card">
+<h3>Continuous Learning</h3>
+<p>Convert incidents into reusable protocols rather than isolated postmortems.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">Transition</div>
+<h2>The next chapter maps civilization as an interconnected system.</h2>
+<p class="lede">Once coordination debt is visible, the next question is where it accumulates. The following chapter explores how failures propagate through finance, energy, healthcare, education, logistics, governance, AI, and communications as one interconnected network rather than isolated sectors.</p>
+</section>
+
+<footer>Chapter 07 → Civilization Systems Map</footer>
+</div>
+<script src="crisis-navigation.js"></script>
+</body>
+</html>

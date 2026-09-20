@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>The Illusion of Connection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#142520;--paper:#f4f1e8;--line:#c7cec2;--leaf:#426e59;--muted:#607069;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:DM Sans,sans-serif}
+.shell{width:min(1200px,calc(100% - 48px));margin:auto}
+nav,footer{padding:24px 0;border-bottom:1px solid var(--line)}
+footer{border-top:1px solid var(--line);border-bottom:none;margin-top:80px}
+.hero{padding:90px 0;border-bottom:1px solid var(--line)}
+h1{font:500 clamp(3.2rem,6vw,5.6rem)/.95 "Playfair Display",serif;letter-spacing:-.05em}
+.eyebrow{font:11px DM Mono,monospace;text-transform:uppercase;color:var(--leaf);letter-spacing:.12em}
+p{line-height:1.75;color:#495850}
+.stage{height:420px;position:relative;border:1px solid var(--line);margin:50px 0;background:#f8f6ef}
+.dot{position:absolute;width:10px;height:10px;border-radius:50%;background:#426e59}
+.line{position:absolute;height:2px;background:#b8c1b8;transform-origin:left center}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.card{border-top:2px solid var(--leaf);padding-top:12px}
+</style></head><body><div class="shell">
+<nav><strong>Andrew Franklin Leo</strong></nav>
+<section class="hero">
+<div class="eyebrow">Chapter 02</div>
+<h1>The Illusion of Connection</h1>
+<p>Modern civilization has achieved unprecedented connectivity. Billions of people, devices, institutions and algorithms exchange information every second. Yet connection alone does not produce coordination. Information can move instantly while decisions remain fragmented.</p>
+<div class="stage" id="stage"></div>
+</section>
+
+<section>
+<div class="eyebrow">Three Distinctions</div>
+<div class="grid">
+<div class="card"><h2>Connection</h2><p>Establishes communication pathways. Networks expand, but shared intent is absent.</p></div>
+<div class="card"><h2>Coordination</h2><p>Aligns actions across independent actors through shared context, incentives, timing and governance.</p></div>
+<div class="card"><h2>Cooperation</h2><p>Actors voluntarily contribute toward a common objective after coordination has reduced uncertainty.</p></div>
+<div class="card"><h2>Civilization</h2><p>A long-lived coordination system capable of preserving memory while adapting to new conditions.</p></div>
+</div>
+</section>
+
+<section style="padding:80px 0">
+<div class="eyebrow">Observation</div>
+<h2 style="font-family:Playfair Display,serif;font-size:3rem">More Connections.<br>Same Fragmentation.</h2>
+<p>Email, messaging, social media and AI increased communication bandwidth. They did not automatically solve incentive alignment, institutional trust, governance latency or collective decision-making.</p>
+</section>
+
+<footer>Next Chapter: Mapping Hidden Coordination Patterns</footer>
+</div>
+<script>
+const s=document.getElementById('stage');
+const pts=[[80,80],[240,60],[420,120],[580,70],[160,250],[340,300],[560,250],[760,180]];
+pts.forEach((p,i)=>{
+ let d=document.createElement('div');d.className='dot';d.style.left=p[0]+'px';d.style.top=p[1]+'px';s.appendChild(d);
+ if(i){
+ let a=pts[i-1];let dx=p[0]-a[0],dy=p[1]-a[1];
+ let l=document.createElement('div');l.className='line';
+ l.style.left=a[0]+5+'px';l.style.top=a[1]+5+'px';
+ l.style.width=Math.hypot(dx,dy)+'px';
+ l.style.transform='rotate('+Math.atan2(dy,dx)+'rad)';
+ s.appendChild(l);
+ }
+});
+document.querySelectorAll('.dot').forEach((d,i)=>{
+let t=0;setInterval(()=>{t+=.06;d.style.transform=`translateY(${Math.sin(t+i)*5}px)`},30);
+});
+</script>
+<script src="crisis-navigation.js"></script>
+</body></html>

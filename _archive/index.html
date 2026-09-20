@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Andrew Franklin Leo is a planetary civilization architect building systems for citizen intelligence, AI-native enterprise, and democratic coordination.">
+  <title>Andrew Franklin Leo — Planetary Civilization Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#142520; --paper:#f4f1e8; --line:#c7cec2; --leaf:#426e59; --acid:#d4f04c; --muted:#607069; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .shell { width:min(1240px, calc(100% - 48px)); margin:auto; }
+    .eyebrow { font:500 11px/1.2 "DM Mono",monospace; letter-spacing:.13em; text-transform:uppercase; color:var(--leaf); }
+    nav { height:82px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:11px; font-size:14px; font-weight:600; letter-spacing:-.02em; }
+    .mark { width:28px; height:28px; border:1.5px solid var(--ink); display:grid; place-items:center; border-radius:50%; font:500 13px Georgia,serif; }
+    .nav-links { display:flex; align-items:center; gap:27px; font-size:13px; color:#40534b; }
+    .nav-links a:hover { color:var(--leaf); }
+    .nav-cta, .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--ink); padding:11px 16px; font:500 11px "DM Mono",monospace; letter-spacing:.07em; text-transform:uppercase; transition:.2s ease; }
+    .nav-cta:hover { color:var(--paper); background:var(--ink); }
+    .hero { min-height:660px; padding:88px 0 68px; display:grid; grid-template-columns:1.13fr .87fr; gap:52px; border-bottom:1px solid var(--line); position:relative; overflow:hidden; }
+    h1 { max-width:730px; margin:25px 0 30px; font:500 clamp(3.35rem,7vw,6.55rem)/.94 "Playfair Display",Georgia,serif; letter-spacing:-.075em; }
+    h1 em { color:var(--leaf); font-weight:500; }
+    .lede { width:min(535px,100%); font-size:18px; line-height:1.58; color:#43534c; }
+    .hero-actions { margin-top:36px; display:flex; align-items:center; gap:23px; }
+    .button { background:var(--ink); color:var(--paper); padding:15px 21px; }
+    .button:hover { background:var(--leaf); border-color:var(--leaf); }
+    .text-link { font:500 12px "DM Mono",monospace; border-bottom:1px solid var(--ink); padding-bottom:5px; }
+    .orb-stage { position:relative; min-height:430px; align-self:center; }
+    .orb { width:min(31vw,395px); aspect-ratio:1; position:absolute; right:5%; top:9%; border-radius:50%; background:radial-gradient(circle at 33% 28%, #ebf6bc 0 2%, #b3d444 17%, #547f5d 38%, #24493e 70%, #19352e 100%); box-shadow:inset -30px -25px 70px #0a251e, 0 25px 35px #36524444; }
+    .orb:before, .orb:after { content:""; position:absolute; border:1px solid #d6ed944d; border-radius:50%; inset:-27px -95px; transform:rotate(-18deg); }
+    .orb:after { inset:-75px -25px; transform:rotate(50deg); border-color:#456c5b66; }
+    .star { position:absolute; width:5px; height:5px; background:var(--acid); border-radius:50%; box-shadow:0 0 15px 4px #d4f04c66; }
+    .s1 { right:84%; top:16%; } .s2 { right:5%; top:75%; } .s3 { right:72%; top:83%; width:3px; height:3px; } .s4 { right:18%; top:9%; width:2px; height:2px; }
+    .orbit-note { position:absolute; bottom:0; left:0; width:220px; border-top:1px solid var(--line); padding-top:13px; font:12px/1.45 "DM Mono",monospace; color:var(--muted); }
+    .manifesto { padding:122px 0; display:grid; grid-template-columns:.65fr 1.35fr; gap:65px; border-bottom:1px solid var(--line); }
+    .manifesto h2 { margin:0; font:500 clamp(2.4rem,4.4vw,4.5rem)/1 "Playfair Display",Georgia,serif; letter-spacing:-.06em; }
+    .manifesto-text { max-width:760px; }
+    .manifesto-text p:first-child { margin-top:0; font:500 clamp(1.7rem,2.8vw,2.55rem)/1.23 "Playfair Display",Georgia,serif; letter-spacing:-.045em; }
+    .manifesto-text p:not(:first-child) { font-size:16px; line-height:1.62; color:#4e5f57; max-width:615px; }
+    .research { padding:108px 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:.86fr 1.14fr; gap:65px; }
+    .research h2 { margin:8px 0 0; font:500 clamp(2.3rem,4.2vw,4.3rem)/1 "Playfair Display",Georgia,serif; letter-spacing:-.06em; }
+    .research-lede { margin:0 0 31px; max-width:600px; font:500 clamp(1.5rem,2.5vw,2.25rem)/1.22 "Playfair Display",Georgia,serif; letter-spacing:-.04em; }
+    .research-copy { max-width:620px; color:#4e5f57; font-size:15px; line-height:1.62; }
+    .failures { margin-top:35px; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr; }
+    .failure { padding:14px 10px 13px 0; border-bottom:1px solid var(--line); color:var(--ink); font:500 12px "DM Mono",monospace; }
+    .failure:nth-child(even) { padding-left:16px; border-left:1px solid var(--line); }
+    .research-link { display:inline-block; margin-top:28px; padding-bottom:5px; border-bottom:1px solid var(--ink); font:500 12px "DM Mono",monospace; }
+    .work { padding:112px 0 125px; }
+    .section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:45px; }
+    .section-head h2 { margin:7px 0 0; font:500 clamp(2.2rem,4vw,4rem)/1 "Playfair Display",Georgia,serif; letter-spacing:-.06em; }
+    .section-head p { max-width:290px; color:var(--muted); font-size:14px; line-height:1.5; }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+    .project { background:var(--paper); padding:30px; min-height:330px; display:flex; flex-direction:column; transition:background .25s; }
+    .project:hover { background:#e9eee2; }
+    .project-number { font:11px "DM Mono",monospace; color:var(--leaf); }
+    .project h3 { font:500 31px/1.05 "Playfair Display",Georgia,serif; letter-spacing:-.045em; margin:55px 0 15px; }
+    .project p { margin:0; color:var(--muted); font-size:14px; line-height:1.55; }
+    .project-tag { margin-top:auto; padding-top:25px; font:11px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.08em; }
+    .constellation { padding:0 0 115px; }
+    .constellation-label { display:flex; align-items:center; gap:12px; margin-bottom:21px; font:500 11px "DM Mono",monospace; letter-spacing:.11em; text-transform:uppercase; color:var(--leaf); }
+    .constellation-label:after { content:""; height:1px; flex:1; background:var(--line); }
+    .constellation-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .constellation-item { border-top:2px solid var(--leaf); padding-top:13px; }
+    .constellation-item h3 { margin:0 0 7px; font:500 23px/1 "Playfair Display",Georgia,serif; letter-spacing:-.04em; }
+    .constellation-item p { margin:0; color:var(--muted); font-size:13px; line-height:1.45; }
+    .principles { background:var(--ink); color:#e9ede3; padding:105px 0; }
+    .principles .eyebrow { color:var(--acid); }
+    .principles-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+    .principles h2 { margin:15px 0; font:500 clamp(2.4rem,4.5vw,4.7rem)/1 "Playfair Display",Georgia,serif; letter-spacing:-.065em; }
+    .principles-intro { color:#b5c4bb; line-height:1.6; max-width:420px; }
+    .principle-list { border-top:1px solid #789080; }
+    .principle { display:grid; grid-template-columns:55px 1fr; gap:13px; padding:20px 0; border-bottom:1px solid #789080; }
+    .principle span { font:11px "DM Mono",monospace; color:var(--acid); padding-top:4px; }
+    .principle h3 { margin:0 0 8px; font-size:16px; font-weight:600; }
+    .principle p { margin:0; font-size:14px; color:#b5c4bb; line-height:1.48; }
+    .contact { padding:115px 0 30px; }
+    .contact h2 { max-width:850px; margin:16px 0 38px; font:500 clamp(3rem,6vw,6rem)/.98 "Playfair Display",Georgia,serif; letter-spacing:-.07em; }
+    .contact h2 em { color:var(--leaf); }
+    footer { display:flex; justify-content:space-between; border-top:1px solid var(--line); padding:20px 0 30px; font:11px "DM Mono",monospace; color:var(--muted); }
+    @media (max-width:760px) { .shell { width:min(100% - 32px,1240px); } .nav-links { display:none; } .hero { min-height:0; padding:58px 0 66px; grid-template-columns:1fr; gap:20px; } .orb-stage { min-height:295px; } .orb { width:270px; right:8%; } .manifesto, .research, .principles-grid { grid-template-columns:1fr; gap:30px; } .manifesto, .research { padding:78px 0; } .work { padding:78px 0; } .section-head { align-items:start; flex-direction:column; margin-bottom:30px; } .projects, .constellation-grid { grid-template-columns:1fr; } .project { min-height:250px; } .project h3 { margin-top:35px; } .constellation { padding-bottom:78px; } .principles { padding:76px 0; } .contact { padding-top:80px; } footer { gap:15px; flex-wrap:wrap; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="mark">A</span> Andrew Franklin Leo</a>
+      <div class="nav-links"><a href="#research">Research</a><a href="#work">Practice</a><a href="#principles">Principles</a></div>
+      <a class="nav-cta" href="mailto:hello@andrewfranklinleo.com">Start a dialogue ↗</a>
+    </nav>
+  </div>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Founder · Coordination science · Systems architecture</p>
+        <h1 id="hero-title">Designing the conditions for a <em>living planet</em> to coordinate.</h1>
+        <p class="lede">Andrew Franklin Leo is a planetary civilization architect exploring how citizens, institutions, enterprises, and intelligent agents can create legitimate shared futures.</p>
+        <div class="hero-actions"><a class="button" href="#work">Explore the work ↓</a><a class="text-link" href="#about">A point of view</a></div>
+      </div>
+      <div class="orb-stage" aria-label="An abstract planetary illustration">
+        <i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i><div class="orb"></div>
+        <p class="orbit-note">A civilization is not a destination. It is a practice of becoming.</p>
+      </div>
+    </section>
+    <section class="manifesto shell" id="about" aria-labelledby="about-title">
+      <div><p class="eyebrow">01 / The proposition</p><h2 id="about-title">Beyond the institution.</h2></div>
+      <div class="manifesto-text"><p>The next generation of civilization will be built not around administration, but around the dignity, intelligence, and agency of every citizen.</p><p>Andrew’s work asks a simple, consequential question: what changes when citizens become the source of governance, AI becomes the coordination layer, and institutions become accountable executors of public value?</p><p>It is an inquiry into systems that can outlive their founders—designed to learn, replicate, and create legitimate shared futures.</p></div>
+    </section>
+    <section class="research shell" id="research" aria-labelledby="research-title">
+      <div><p class="eyebrow">02 / Research foundation</p><h2 id="research-title">The problem beneath the problem.</h2></div>
+      <div><p class="research-lede">Most institutional failures are not failures of intent. They are failures of coordination.</p><p class="research-copy">The research practice examines how information, incentives, memory, trust, and agency move through complex systems. It connects the small frictions inside organisations to the larger challenge of coordinating a human–machine civilization.</p><div class="failures" aria-label="Coordination research themes"><span class="failure">Information asymmetry</span><span class="failure">Misaligned incentives</span><span class="failure">Institutional memory loss</span><span class="failure">Trust deficits</span><span class="failure">Fragmented agency</span><span class="failure">Complex adaptive systems</span></div><a class="research-link" href="Civilization%20Coordination%20Crisis/index.html">Read: Civilization Coordination Crisis →</a></div>
+    </section>
+    <section class="work shell" id="work" aria-labelledby="work-title">
+      <div class="section-head"><div><p class="eyebrow">03 / Building in public</p><h2 id="work-title">From first principles<br>to living systems.</h2></div><p>Long-horizon architecture begins by solving a real problem, in a real place, with real people.</p></div>
+      <div class="projects">
+        <article class="project"><span class="project-number">01</span><h3>Aureya</h3><p>A coordination substrate for citizen intelligence, institutional memory, and accountable action across human and AI systems.</p><span class="project-tag">Civilization protocol ↗</span></article>
+        <article class="project"><span class="project-number">02</span><h3>Frankmax</h3><p>A capability and venture-building practice that turns learning into client value, reusable systems, and new enterprise.</p><span class="project-tag">Human potential ↗</span></article>
+        <article class="project"><span class="project-number">03</span><h3>AI-Native Enterprise</h3><p>Governed operational intelligence entities designed to create value, reduce entropy, and grow institutional capability.</p><span class="project-tag">Economic infrastructure ↗</span></article>
+      </div>
+    </section>
+    <section class="constellation shell" aria-labelledby="constellation-title"><div class="constellation-label" id="constellation-title">A connected practice</div><div class="constellation-grid"><article class="constellation-item"><h3>Leo Global</h3><p>Long-term vision, governance, and enterprise architecture.</p></article><article class="constellation-item"><h3>Leo Technologies</h3><p>Technology infrastructure for intelligent coordination.</p></article><article class="constellation-item"><h3>Leo Institute</h3><p>Research and education for evolving systems.</p></article><article class="constellation-item"><h3>Glosbe</h3><p>Community networks and collective intelligence.</p></article></div></section>
+    <section class="principles" id="principles" aria-labelledby="principles-title"><div class="shell principles-grid"><div><p class="eyebrow">04 / Design principles</p><h2 id="principles-title">Make the future <em>legible.</em></h2><p class="principles-intro">The work is guided by a belief that big visions only earn trust when their mechanisms are visible, useful, and open to participation.</p></div><div class="principle-list"><article class="principle"><span>01</span><div><h3>Citizen before system</h3><p>Power should flow from lived needs and collective intelligence, not institutional convenience.</p></div></article><article class="principle"><span>02</span><div><h3>Protocol before platform</h3><p>Build shared rules that can travel across people, places, and technologies—not closed dependencies.</p></div></article><article class="principle"><span>03</span><div><h3>Memory before repetition</h3><p>Institutions should retain the context, decisions, and lessons needed to evolve rather than relive old failures.</p></div></article><article class="principle"><span>04</span><div><h3>Proof before scale</h3><p>Start local, create visible value, and architect every early success for replication.</p></div></article></div></div></section>
+    <section class="contact shell"><p class="eyebrow">05 / Correspondence</p><h2>There is no planetary future without a <em>shared one.</em></h2><a class="button" href="mailto:hello@andrewfranklinleo.com">Begin a conversation ↗</a></section>
+  </main>
+  <footer class="shell"><span>© 2026 Andrew Franklin Leo</span><span>Planetary Civilization Architect</span><span>Built for the long now.</span></footer>
+</body>
+</html>
