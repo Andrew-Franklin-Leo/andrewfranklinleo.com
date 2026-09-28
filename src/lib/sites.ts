@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const siteThemes = ["root", "aureya", "research", "venture"] as const;
+export const siteThemes = ["root", "aureya", "research", "venture", "protocol", "accountability"] as const;
 
 export const siteSchema = z.object({
   siteId: z.string().min(3),
@@ -29,6 +29,22 @@ export const sites: Site[] = [
     slug: "civilization-coordination-crisis",
     description: "Research into the coordination failures beneath civilization's visible crises.",
     theme: "research",
+    status: "active",
+  },
+  {
+    siteId: "SITE-STP",
+    name: "State Transition Protocol",
+    slug: "state-transition-protocol",
+    description: "An interoperability layer for independently operated realities, their state transitions, and purpose-specific world resolutions.",
+    theme: "protocol",
+    status: "active",
+  },
+  {
+    siteId: "SITE-PIAI",
+    name: "Programmable Institutional Accountability",
+    slug: "institutional-accountability-infrastructure",
+    description: "Infrastructure for proving, governing, attributing, pricing, insuring, and settling consequential machine-mediated actions.",
+    theme: "accountability",
     status: "active",
   },
 ];

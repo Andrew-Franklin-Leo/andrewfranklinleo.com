@@ -45,6 +45,25 @@ Microsite routes use the path pattern:
 /projects/<site-slug>/<section>/<entity-slug>
 ```
 
+The public deployment is a static, read-only site. The `/admin` route is a registry viewer, not a write interface. `CMS_ADMIN_TOKEN` is reserved for a future authenticated CMS service and does not enable writes in the GitHub Pages deployment.
+
+## Local CMS service
+
+The standalone CMS service runs separately from the static site:
+
+```powershell
+$env:CMS_ADMIN_TOKEN = "choose-a-local-secret"
+npm run cms
+```
+
+It listens on `http://localhost:4000` and accepts authenticated Markdown writes:
+
+```powershell
+Invoke-RestMethod -Method Put -Uri http://localhost:4000/entities/example.md -Headers @{ Authorization = "Bearer choose-a-local-secret" } -ContentType "text/markdown" -Body (Get-Content content/example.md -Raw)
+```
+
+The service validates required entity frontmatter and writes only safe `.md` filenames inside `content/`. It is a local reference service, not yet a production CMS deployment.
+
 ## Repository setup
 
 The configured remote is:

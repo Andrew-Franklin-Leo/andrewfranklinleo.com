@@ -12,6 +12,8 @@ export function SiteNav() {
         </Link>
         <nav className="nav-links" aria-label="Primary navigation">
           {sections.map((section) => <Link key={section} href={`/${section}`}>{section}</Link>)}
+          <Link href="/projects">projects</Link>
+          <Link href="/projects/state-transition-protocol">protocol</Link>
         </nav>
         <Link className="nav-admin" href="/admin">Registry</Link>
       </div>

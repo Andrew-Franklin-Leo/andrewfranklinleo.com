@@ -35,6 +35,34 @@ export const relationTypes = [
   "commercialized-as",
 ] as const;
 
+export const epistemicStatuses = ["observed", "reported", "claimed", "reconstructed", "inferred", "predicted", "simulated"] as const;
+
+const stateValue = z.union([z.string(), z.number(), z.boolean(), z.null(), z.record(z.string(), z.unknown()), z.array(z.unknown())]);
+const optionalEntityDate = z.union([z.string(), z.date()]).optional().transform((value) =>
+  value instanceof Date ? value.toISOString().slice(0, 10) : value,
+);
+
+export const stateSnapshotSchema = z.object({
+  key: z.string().min(1),
+  value: stateValue,
+  asOf: optionalEntityDate,
+  authority: z.string().optional(),
+  confidence: z.number().min(0).max(1).optional(),
+});
+
+export const stateTransitionSchema = z.object({
+  transitionId: z.string().min(1),
+  event: z.string().min(1),
+  from: z.string().min(1),
+  to: z.string().min(1),
+  occurredAt: optionalEntityDate,
+  epistemicStatus: z.enum(epistemicStatuses).default("reported"),
+  authority: z.string().optional(),
+  evidence: z.array(z.string()).optional().default([]),
+  provenance: z.array(z.string()).optional().default([]),
+  confidence: z.number().min(0).max(1).optional(),
+});
+
 const optionalStringArray = z.array(z.string()).optional().default([]);
 const entityDate = z.union([z.string().date(), z.date()]).transform((value) =>
   value instanceof Date ? value.toISOString().slice(0, 10) : value,
@@ -61,6 +89,8 @@ export const entityFrontmatterSchema = z.object({
   ventures: optionalStringArray,
   dependencies: optionalStringArray,
   openQuestions: optionalStringArray,
+  states: z.array(stateSnapshotSchema).optional().default([]),
+  transitions: z.array(stateTransitionSchema).optional().default([]),
 });
 
 export type EntityFrontmatter = z.infer<typeof entityFrontmatterSchema>;
@@ -69,6 +99,9 @@ export type Entity = EntityFrontmatter & {
   slug: string;
   content: string;
 };
+
+export type StateSnapshot = z.infer<typeof stateSnapshotSchema>;
+export type StateTransition = z.infer<typeof stateTransitionSchema>;
 
 export type RelationType = (typeof relationTypes)[number];
 

@@ -20,6 +20,22 @@ dependencies:
   - IDEA-EST-001
 openQuestions:
   - Who is the first customer for verified economic outcomes?
+states:
+  - key: lifecycle
+    value: seed
+    asOf: 2026-09-19
+  - key: commercial_readiness
+    value: hypothesis-only
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-OASV-001
+    event: venture_hypothesis_registered
+    from: idea
+    to: seed
+    occurredAt: 2026-09-19
+    epistemicStatus: claimed
+    authority: Andrew Franklin Leo
+    confidence: 0.72
 ---
 
 # Outcome Assurance Infrastructure

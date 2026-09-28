@@ -19,6 +19,22 @@ ventures: []
 dependencies: []
 openQuestions:
   - Which coordination failures are structural rather than informational?
+states:
+  - key: lifecycle
+    value: active
+    asOf: 2026-09-19
+  - key: research_status
+    value: editorial-investigation
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-CCC-001
+    event: investigation_published
+    from: draft
+    to: active
+    occurredAt: 2026-09-19
+    epistemicStatus: observed
+    authority: Andrew Franklin Leo
+    confidence: 0.99
 ---
 
 # Civilization Coordination Crisis

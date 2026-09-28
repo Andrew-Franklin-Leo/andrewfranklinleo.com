@@ -20,6 +20,22 @@ dependencies:
 openQuestions:
   - What should a citizen-controlled coordination layer remember?
   - How can agentic systems remain accountable to the people they serve?
+states:
+  - key: lifecycle
+    value: seed
+    asOf: 2026-09-19
+  - key: coordination_scope
+    value: citizen-institution-agent
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-AUR-001
+    event: concept_registered
+    from: unformulated
+    to: seed
+    occurredAt: 2026-09-19
+    epistemicStatus: observed
+    authority: Andrew Franklin Leo
+    confidence: 0.99
 ---
 
 # Citizen Mesh

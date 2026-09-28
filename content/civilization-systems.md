@@ -17,6 +17,22 @@ dependencies: []
 openQuestions:
   - What functions must every civilization coordinate?
   - Which functions can be delegated to intelligent agents?
+states:
+  - key: lifecycle
+    value: seed
+    asOf: 2026-09-19
+  - key: scope
+    value: civilization-level-system-map
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-CIV-001
+    event: functional_view_defined
+    from: unformulated
+    to: seed
+    occurredAt: 2026-09-19
+    epistemicStatus: claimed
+    authority: Andrew Franklin Leo
+    confidence: 0.78
 ---
 
 # Civilization Systems

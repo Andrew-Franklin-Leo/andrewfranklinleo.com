@@ -18,6 +18,30 @@ dependencies:
 openQuestions:
   - Which variables best represent capability?
   - How should agency and verification enter the model?
+states:
+  - key: lifecycle
+    value: seed
+    asOf: 2026-09-19
+  - key: formalization
+    value: incomplete
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-CAP-001
+    event: model_initialized
+    from: unformulated
+    to: seed
+    occurredAt: 2026-09-19
+    epistemicStatus: observed
+    authority: Andrew Franklin Leo
+    confidence: 0.99
+  - transitionId: TRANS-CAP-002
+    event: assumptions_exposed
+    from: seed
+    to: incomplete
+    occurredAt: 2026-09-19
+    epistemicStatus: reported
+    authority: Andrew Franklin Leo
+    confidence: 0.86
 ---
 
 # Capability Transition Model

@@ -22,6 +22,24 @@ dependencies:
 openQuestions:
   - Which outcomes are observable enough to assure?
   - How should assurance price uncertainty?
+states:
+  - key: lifecycle
+    value: developing
+    asOf: 2026-09-19
+  - key: assurance_status
+    value: research-stage
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-OAS-001
+    event: derived_from_economic_transition
+    from: unformulated
+    to: developing
+    occurredAt: 2026-09-19
+    epistemicStatus: reconstructed
+    authority: Andrew Franklin Leo
+    provenance:
+      - IDEA-EST-001
+    confidence: 0.9
 ---
 
 # Outcome Assurance

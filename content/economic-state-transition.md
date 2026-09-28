@@ -21,6 +21,30 @@ dependencies: []
 openQuestions:
   - Can an economic state transition be measured consistently across institutions?
   - What evidence is sufficient for settlement and financing?
+states:
+  - key: lifecycle
+    value: developing
+    asOf: 2026-09-19
+  - key: verification
+    value: unproven
+    asOf: 2026-09-19
+transitions:
+  - transitionId: TRANS-EST-001
+    event: hypothesis_formulated
+    from: unformulated
+    to: developing
+    occurredAt: 2026-09-19
+    epistemicStatus: claimed
+    authority: Andrew Franklin Leo
+    confidence: 0.83
+  - transitionId: TRANS-EST-002
+    event: measurement_problem_opened
+    from: developing
+    to: verification-needed
+    occurredAt: 2026-09-19
+    epistemicStatus: reported
+    authority: Andrew Franklin Leo
+    confidence: 0.91
 ---
 
 # Economic State Transition
